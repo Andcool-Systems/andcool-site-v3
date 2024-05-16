@@ -1,7 +1,13 @@
 .main{
-    max-width: 40%;
+    width: 40%;
     margin-bottom: 1rem;
 }
+
+.child{
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
 
 .head{
     overflow: hidden;
@@ -12,11 +18,11 @@
     border-bottom: 0;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    background-color: #0E0F11;
 }
 
 .head img{
     width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     box-shadow: #3E3E3E 0px 0px 200px;
 }
@@ -39,11 +45,11 @@
     color: #C0C0C0;
 }
 
+
 .body{
     border: 2px #5B5959 solid;
     text-align: left;
     padding: 1rem;
-    padding-top: 0.4rem;
     overflow: hidden;
 }
 
@@ -110,7 +116,8 @@
 }
 
 @media(max-width: 970px){
-    .main{max-width: 90%;}
+    .main{width: 90%;}
     .head{flex-direction: column; vertical-align: middle;}
     .name{margin-left: 0; margin-top: 0.5rem; display: flex; flex-direction: column;align-items: center;}
+    .name h1{text-align: center;}
 }

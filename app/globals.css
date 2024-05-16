@@ -41,7 +41,10 @@ p{
 footer{
     width: 100%;
     text-align: left;
+    padding: 5px;
+    box-sizing: border-box;
 }
+
 footer p{
     margin: 0;
     color:#777777;
@@ -55,7 +58,7 @@ footer p{
     }
 
     h2{
-        font-size: 200%;
+        font-size: 180%;
     }
 
     p{

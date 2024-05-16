@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import styles_pr from "./projects.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { fu, fu_more, ppl, ppl_more, wetaher, wetaher_more } from "./data.tsx"
+import { fu, fu_more, ppl, ppl_more, wetaher, wetaher_more, bf, bf_more } from "./data.tsx"
 import * as ReactDOMServer from 'react-dom/server';
 
 export default function Home() {
@@ -13,6 +13,9 @@ export default function Home() {
 	const age = Math.floor((Date.now() - 1189108801000) / (1000 * 60 * 60 * 24 * 365));
 
 	useEffect(() => {
+		window.onbeforeunload = function () {
+			window.scrollTo(0, 0);
+		}
 		axios.get("https://wakatime.com/share/@AndcoolSystems/c20041f4-a965-47c3-ac36-7234e622a980.json").then(response => {
 			set_wakatime(response.data.data.grand_total.human_readable_total_including_other_language)
 		});
@@ -41,7 +44,7 @@ export default function Home() {
 		<main style={{position: "relative", top: 0, right: 0, left: 0, bottom: 0}}>
 			<link rel="shortcut icon" href="/static/andcool.jpg" type="image/png"></link>
 			<header className={styles.header}>
-				<div>
+				<div className={styles.animated}>
 					<div className={styles.nicks}>
 						<img className={styles.avatar} width="230rem" src="./static/andcool.jpg" alt=""/>
 						<h1 className={styles.name}>AndcoolSystems</h1>
@@ -143,158 +146,229 @@ export default function Home() {
 						<span style={{fontSize: "90%"}}>Prisma ORM</span>
 					</div>
 				</div>
+				<h1 style={{fontSize: "150%", marginTop: "3rem"}}>Остальной стек</h1>
+				<div className={styles.tech}>
+					<div>
+						<img src="./static/cpp.svg" alt="cpp"></img>
+						<span>C++</span>
+					</div>
+					<div>
+						<img src="./static/java.svg" alt="java"></img>
+						<span>Java</span>
+					</div>
+					<div>
+						<img src="./static/processing.svg" alt="processing"></img>
+						<span>Processing</span>
+					</div>
+					<div>
+						<img src="./static/arduino.svg" alt="arduino"></img>
+						<span>Arduino</span>
+					</div>
+					<div>
+						<img src="./static/rpi.svg" alt="rpi"></img>
+						<span style={{textAlign: "center"}}>Raspberry pi</span>
+					</div>
+					<div>
+						<img src="./static/docker.svg" alt="docker"></img>
+						<span>Docker</span>
+					</div>
+				</div>
 			</div>
 			<h1>Последние <span className={styles.projects_txt}>проекты</span></h1>
 			<div className={styles_pr.main}>
-				<div className={styles_pr.head}>
-					<img src="./static/fu.png" alt="fu"></img>
-					<div className={styles_pr.name}>
-						<h1 style={{margin: 0, marginBottom: "3px"}}>File Uploader</h1>
-						<p style={{margin: 0}}>Начало разработки: 18.12.2023</p>
+				<div className={styles_pr.child}>
+					<div className={styles_pr.head}>
+						<img src="./static/fu.png" alt="fu"></img>
+						<div className={styles_pr.name}>
+							<h1 style={{margin: 0, marginBottom: "3px"}}>File Uploader</h1>
+							<p style={{margin: 0}}>Начало разработки: 18.12.2023</p>
+						</div>
+					</div>
+					<div className={styles_pr.body} id="fu_body">
+						<h1>Описание и история создания</h1>
+						<p id="fu">
+							{fu}
+						</p>
+						<button id="fu_more" onClick={() => {
+							let fup = document.getElementById("fu") as HTMLParagraphElement;
+							fup.innerHTML += ReactDOMServer.renderToString(fu_more);
+
+							(document.getElementById("fu_more") as HTMLButtonElement).style.display = "none";
+							(document.getElementById("fu_less") as HTMLButtonElement).style.display = "block";
+						}}>Ещё...</button>
+
+						<button id="fu_less" style={{display: "none"}} onClick={() => {
+							let fup = document.getElementById("fu") as HTMLParagraphElement;
+							fup.innerHTML = ReactDOMServer.renderToString(fu);
+
+							(document.getElementById("fu_more") as HTMLButtonElement).style.display = "block";
+							(document.getElementById("fu_less") as HTMLButtonElement).style.display = "none";
+						}}>Скрыть</button>
+					</div>
+					<div className={styles_pr.footer}>
+						<a href="https://fu.andcool.ru" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Сайт</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
+						<a href="https://github.com/Andcool-Systems/File-uploader/tree/main" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Исходный код</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
 					</div>
 				</div>
-				<div className={styles_pr.body} id="fu_body">
-					<h1>Описание и история создания</h1>
-					<p id="fu">
-						{fu}
-					</p>
-					<button id="fu_more" onClick={() => {
-						let fup = document.getElementById("fu") as HTMLParagraphElement;
-						fup.innerHTML += ReactDOMServer.renderToString(fu_more);
 
-						(document.getElementById("fu_more") as HTMLButtonElement).style.display = "none";
-						(document.getElementById("fu_less") as HTMLButtonElement).style.display = "block";
-					}}>Ещё...</button>
-
-					<button id="fu_less" style={{display: "none"}} onClick={() => {
-						let fup = document.getElementById("fu") as HTMLParagraphElement;
-						fup.innerHTML = ReactDOMServer.renderToString(fu);
-
-						(document.getElementById("fu_more") as HTMLButtonElement).style.display = "block";
-						(document.getElementById("fu_less") as HTMLButtonElement).style.display = "none";
-					}}>Скрыть</button>
-				</div>
-				<div className={styles_pr.footer}>
-					<a href="https://fu.andcool.ru" target="_blank" style={{textDecoration: "none"}}>
-						<div className={styles_pr.button}>
-							<p>Сайт</p>
-							<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
-								<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-								<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-							</svg>
+				<div className={styles_pr.child}>
+					<div className={styles_pr.head}>
+						<img src="./static/ppl.png" alt="ppl" className={styles_pr.ppl}></img>
+						<div className={styles_pr.name}>
+							<h1 style={{margin: 0, marginBottom: "3px"}}>Повязка PepeLand</h1>
+							<p style={{margin: 0}}>Начало разработки: 01.06.2023</p>
 						</div>
-					</a>
-					<a href="https://github.com/Andcool-Systems/File-uploader/tree/main" target="_blank" style={{textDecoration: "none"}}>
-						<div className={styles_pr.button}>
-							<p>Исходный код</p>
-							<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
-								<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-								<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-							</svg>
-						</div>
-					</a>
-				</div>
-			</div>
+					</div>
+					<div className={styles_pr.body} id="ppl_body">
+						<h1>Описание и история создания</h1>
+						<p id="ppl">
+							{ppl}
+						</p>
+						<button id="ppl_more" onClick={() => {
+							let pplp = document.getElementById("ppl") as HTMLParagraphElement;
+							pplp.innerHTML += ReactDOMServer.renderToString(ppl_more);
 
-			<div className={styles_pr.main}>
-				<div className={styles_pr.head}>
-					<img src="./static/ppl.png" alt="ppl" className={styles_pr.ppl}></img>
-					<div className={styles_pr.name}>
-						<h1 style={{margin: 0, marginBottom: "3px"}}>Повязка PepeLand</h1>
-						<p style={{margin: 0}}>Начало разработки: 01.06.2023</p>
+							(document.getElementById("ppl_more") as HTMLButtonElement).style.display = "none";
+							(document.getElementById("ppl_less") as HTMLButtonElement).style.display = "block";
+						}}>Ещё...</button>
+
+						<button id="ppl_less" style={{display: "none"}} onClick={() => {
+							let pplp = document.getElementById("ppl") as HTMLParagraphElement;
+							pplp.innerHTML = ReactDOMServer.renderToString(ppl);
+
+							(document.getElementById("ppl_more") as HTMLButtonElement).style.display = "block";
+							(document.getElementById("ppl_less") as HTMLButtonElement).style.display = "none";
+						}}>Скрыть</button>
+					</div>
+					<div className={styles_pr.footer}>
+						<a href="https://pplbandage.ru" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Сайт</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
+						<a href="https://github.com/Andcool-Systems/pplbandagebot_v2" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Исходный код второго бота</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
 					</div>
 				</div>
-				<div className={styles_pr.body} id="ppl_body">
-					<h1>Описание и история создания</h1>
-					<p id="ppl">
-						{ppl}
-					</p>
-					<button id="ppl_more" onClick={() => {
-						let pplp = document.getElementById("ppl") as HTMLParagraphElement;
-						pplp.innerHTML += ReactDOMServer.renderToString(ppl_more);
 
-						(document.getElementById("ppl_more") as HTMLButtonElement).style.display = "none";
-						(document.getElementById("ppl_less") as HTMLButtonElement).style.display = "block";
-					}}>Ещё...</button>
-
-					<button id="ppl_less" style={{display: "none"}} onClick={() => {
-						let pplp = document.getElementById("ppl") as HTMLParagraphElement;
-						pplp.innerHTML = ReactDOMServer.renderToString(ppl);
-
-						(document.getElementById("ppl_more") as HTMLButtonElement).style.display = "block";
-						(document.getElementById("ppl_less") as HTMLButtonElement).style.display = "none";
-					}}>Скрыть</button>
-				</div>
-				<div className={styles_pr.footer}>
-					<a href="https://pplbandage.ru" target="_blank" style={{textDecoration: "none"}}>
-						<div className={styles_pr.button}>
-							<p>Сайт</p>
-							<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
-								<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-								<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-							</svg>
+				<div className={styles_pr.child}>
+					<div className={styles_pr.head}>
+						<img src="./static/weather.svg" alt="weather" className={styles_pr.weather}></img>
+						<div className={styles_pr.name}>
+							<h1 style={{margin: 0, marginBottom: "3px"}}>Weather Widget</h1>
+							<p style={{margin: 0}}>Начало разработки: 20.08.2023</p>
 						</div>
-					</a>
-					<a href="https://github.com/Andcool-Systems/pplbandagebot_v2" target="_blank" style={{textDecoration: "none"}}>
-						<div className={styles_pr.button}>
-							<p>Исходный код второго бота</p>
-							<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
-								<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-								<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-							</svg>
-						</div>
-					</a>
-				</div>
-			</div>
+					</div>
+					<div className={styles_pr.body} id="weather_body">
+						<h1>Описание и история создания</h1>
+						<p id="weather">
+							{wetaher}
+						</p>
+						<button id="weather_more" onClick={() => {
+							let weatherp = document.getElementById("weather") as HTMLParagraphElement;
+							weatherp.innerHTML += ReactDOMServer.renderToString(wetaher_more);
 
-			<div className={styles_pr.main}>
-				<div className={styles_pr.head}>
-					<img src="./static/weather.svg" alt="weather" className={styles_pr.weather}></img>
-					<div className={styles_pr.name}>
-						<h1 style={{margin: 0, marginBottom: "3px"}}>Weather Widget</h1>
-						<p style={{margin: 0}}>Начало разработки: 20.08.2023</p>
+							(document.getElementById("weather_more") as HTMLButtonElement).style.display = "none";
+							(document.getElementById("weather_less") as HTMLButtonElement).style.display = "block";
+						}}>Ещё...</button>
+
+						<button id="weather_less" style={{display: "none"}} onClick={() => {
+							let weatherp = document.getElementById("weather") as HTMLParagraphElement;
+							weatherp.innerHTML = ReactDOMServer.renderToString(wetaher);
+
+							(document.getElementById("weather_more") as HTMLButtonElement).style.display = "block";
+							(document.getElementById("weather_less") as HTMLButtonElement).style.display = "none";
+						}}>Скрыть</button>
+					</div>
+					<div className={styles_pr.footer}>
+						<a href="https://weather.andcool.ru" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Сайт</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
+						<a href="https://github.com/Andcool-Systems/weather-widget-api" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Исходный код</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
 					</div>
 				</div>
-				<div className={styles_pr.body} id="weather_body">
-					<h1>Описание и история создания</h1>
-					<p id="weather">
-						{wetaher}
-					</p>
-					<button id="weather_more" onClick={() => {
-						let weatherp = document.getElementById("weather") as HTMLParagraphElement;
-						weatherp.innerHTML += ReactDOMServer.renderToString(wetaher_more);
-
-						(document.getElementById("weather_more") as HTMLButtonElement).style.display = "none";
-						(document.getElementById("weather_less") as HTMLButtonElement).style.display = "block";
-					}}>Ещё...</button>
-
-					<button id="weather_less" style={{display: "none"}} onClick={() => {
-						let weatherp = document.getElementById("weather") as HTMLParagraphElement;
-						weatherp.innerHTML = ReactDOMServer.renderToString(wetaher);
-
-						(document.getElementById("weather_more") as HTMLButtonElement).style.display = "block";
-						(document.getElementById("weather_less") as HTMLButtonElement).style.display = "none";
-					}}>Скрыть</button>
-				</div>
-				<div className={styles_pr.footer}>
-					<a href="https://weather.andcool.ru" target="_blank" style={{textDecoration: "none"}}>
-						<div className={styles_pr.button}>
-							<p>Сайт</p>
-							<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
-								<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-								<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-							</svg>
+				
+				<div className={styles_pr.child}>
+					<div className={styles_pr.head}>
+						<img src="./static/bf.png" alt="bf" className={styles_pr.bf}></img>
+						<div className={styles_pr.name}>
+							<h1 style={{margin: 0, marginBottom: "3px"}}>BrainFuck interpreter</h1>
+							<p style={{margin: 0}}>Начало разработки: 14.08.2023</p>
 						</div>
-					</a>
-					<a href="https://github.com/Andcool-Systems/weather-widget-api" target="_blank" style={{textDecoration: "none"}}>
-						<div className={styles_pr.button}>
-							<p>Исходный код</p>
-							<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
-								<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-								<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-							</svg>
-						</div>
-					</a>
+					</div>
+					<div className={styles_pr.body} id="bf_body">
+						<h1>Описание и история создания</h1>
+						<p id="bf">
+							{bf}
+						</p>
+						<button id="bf_more" onClick={() => {
+							let bfp = document.getElementById("bf") as HTMLParagraphElement;
+							bfp.innerHTML += ReactDOMServer.renderToString(bf_more);
+
+							(document.getElementById("bf_more") as HTMLButtonElement).style.display = "none";
+							(document.getElementById("bf_less") as HTMLButtonElement).style.display = "block";
+						}}>Ещё...</button>
+
+						<button id="bf_less" style={{display: "none"}} onClick={() => {
+							let bfp = document.getElementById("bf") as HTMLParagraphElement;
+							bfp.innerHTML = ReactDOMServer.renderToString(bf);
+
+							(document.getElementById("bf_more") as HTMLButtonElement).style.display = "block";
+							(document.getElementById("bf_less") as HTMLButtonElement).style.display = "none";
+						}}>Скрыть</button>
+					</div>
+					<div className={styles_pr.footer}>
+						<a href="https://github.com/Andcool-Systems/brainfuck" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Исходный код</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 
