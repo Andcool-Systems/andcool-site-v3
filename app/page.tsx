@@ -1,11 +1,13 @@
 "use client";
 
-import styles from "./page.module.css";
-import styles_pr from "./projects.module.css";
+import styles from "./styles/page.module.css";
+import styles_pr from "./styles/projects.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { fu, fu_more, ppl, ppl_more, wetaher, wetaher_more, bf, bf_more } from "./data.tsx"
 import * as ReactDOMServer from 'react-dom/server';
+import { Card3D } from "./card3d.tsx"
+
 
 export default function Home() {
 	const [time, set_time] = useState("");
@@ -178,7 +180,9 @@ export default function Home() {
 			<div className={styles_pr.main}>
 				<div className={styles_pr.child}>
 					<div className={styles_pr.head}>
-						<img src="./static/fu.png" alt="fu"></img>
+						<Card3D>
+							<img src="./static/fu.png"></img>
+						</Card3D>
 						<div className={styles_pr.name}>
 							<h1 style={{margin: 0, marginBottom: "3px"}}>File Uploader</h1>
 							<p style={{margin: 0}}>Начало разработки: 18.12.2023</p>
@@ -229,7 +233,9 @@ export default function Home() {
 
 				<div className={styles_pr.child}>
 					<div className={styles_pr.head}>
-						<img src="./static/ppl.png" alt="ppl" className={styles_pr.ppl}></img>
+						<Card3D>
+							<img className={styles_pr.ppl} src="./static/ppl.png"></img>
+						</Card3D>
 						<div className={styles_pr.name}>
 							<h1 style={{margin: 0, marginBottom: "3px"}}>Повязка PepeLand</h1>
 							<p style={{margin: 0}}>Начало разработки: 01.06.2023</p>
@@ -280,7 +286,9 @@ export default function Home() {
 
 				<div className={styles_pr.child}>
 					<div className={styles_pr.head}>
-						<img src="./static/weather.svg" alt="weather" className={styles_pr.weather}></img>
+						<Card3D>
+							<img className={styles_pr.weather} src="./static/weather.svg" alt="weather"></img>
+						</Card3D>
 						<div className={styles_pr.name}>
 							<h1 style={{margin: 0, marginBottom: "3px"}}>Weather Widget</h1>
 							<p style={{margin: 0}}>Начало разработки: 20.08.2023</p>
@@ -331,7 +339,9 @@ export default function Home() {
 				
 				<div className={styles_pr.child}>
 					<div className={styles_pr.head}>
-						<img src="./static/bf.png" alt="bf" className={styles_pr.bf}></img>
+						<Card3D>
+							<img className={styles_pr.bf} src="./static/bf.png" alt="bf"></img>
+						</Card3D>
 						<div className={styles_pr.name}>
 							<h1 style={{margin: 0, marginBottom: "3px"}}>BrainFuck interpreter</h1>
 							<p style={{margin: 0}}>Начало разработки: 14.08.2023</p>

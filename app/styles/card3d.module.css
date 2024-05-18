@@ -1,0 +1,8 @@
+.card3d {
+    z-index: 999;
+    position: relative;
+
+    transition: all 200ms ease-out;
+    image-rendering: crisp-edges;
+    display: inline-block;
+}
