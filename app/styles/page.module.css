@@ -34,11 +34,6 @@
 	flex-wrap: wrap;
 }
 
-.avatar{
-	border-radius: 50%;
-	box-shadow: #0B5000 0px 0px 99px 9px;
-}
-
 .hello{
 	text-align: left;
 }
@@ -63,11 +58,12 @@
     flex-direction: row;
 	padding: 0.7rem;
 	background-color: none;
-	transition: background-color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .single:hover{
 	background-color:#191b1f;
+	transform: translateY(-0.5rem);
 }
 
 .single span{
@@ -124,6 +120,58 @@
 		filter: blur(0);
 		transform: translateY(0) scale(1);
 	}
+}
+
+.card_front,
+.card_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card_back {
+    transform: rotateY(180deg);
+	box-shadow: #b6b6b6 0px 0px 99px 9px;
+	image-rendering: crisp-edges;
+	border-radius: 50%;
+}
+
+.card_front {
+	box-shadow: #0B5000 0px 0px 99px 9px;
+	image-rendering: crisp-edges;
+	border-radius: 50%;
+}
+
+.card {
+    width: 15rem;
+    height: 15rem;
+    perspective: 1000px;
+    cursor: pointer;
+	user-select: none;
+}
+
+.card_inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.72, 0.55, 0.46, 1.33);
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card.is_flipped .card_inner {
+    transform: rotateY(180deg);
+}
+
+.card img{
+	width: 100%;
+	border-radius: 50%;
+}
+
+.card_back img, .card_back{
+	border-radius: 0;
+	box-shadow: none;
+	filter: drop-shadow(0px 0px 10px #555555);
 }
 
 @media(max-width: 970px){

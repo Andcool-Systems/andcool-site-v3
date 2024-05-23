@@ -11,7 +11,6 @@ import { Card3D } from "./card3d.tsx"
 
 export default function Home() {
 	const [time, set_time] = useState("");
-	const [wakatime, set_wakatime] = useState("loading...");
 	const age = Math.floor((Date.now() - 1189108801000) / (1000 * 60 * 60 * 24 * 365));
 
 	useEffect(() => {
@@ -19,7 +18,13 @@ export default function Home() {
 			window.scrollTo(0, 0);
 		}
 		axios.get("https://wakatime.com/share/@AndcoolSystems/c20041f4-a965-47c3-ac36-7234e622a980.json").then(response => {
-			set_wakatime(response.data.data.grand_total.human_readable_total_including_other_language)
+			const wakatime = response.data.data.grand_total.human_readable_total_including_other_language;
+			function add_waka(){
+				const waka = document.getElementById("waka") as HTMLAnchorElement;
+				if (waka.innerHTML.length < wakatime.length)
+					waka.innerHTML += wakatime[waka.innerHTML.length];
+			}
+			setInterval(add_waka, 45);
 		});
 
 		const time = new Date().toLocaleString('ru-RU', {
@@ -48,17 +53,28 @@ export default function Home() {
 			<header className={styles.header}>
 				<div className={styles.animated}>
 					<div className={styles.nicks}>
-						<img className={styles.avatar} width="230rem" src="./static/andcool.jpg" alt=""/>
+					<div className={`${styles.card} card`} onClick={() => {
+							const card = document.querySelector('.card') as HTMLDivElement;
+    						card.classList.toggle(styles.is_flipped);
+						}}>
+        				<div className={styles.card_inner}>
+							<div className={styles.card_front}>
+								<img src="./static/andcool.jpg" alt="Front Image"/>
+							</div>
+							<div className={styles.card_back}>
+								<img src="https://api.pplbandage.ru/head3d/andcoolsystems" alt="Back Image"/>
+							</div>
+							</div>
+						</div>
 						<h1 className={styles.name}>AndcoolSystems</h1>
 					</div>
 					<div className={styles.hello}>
 						<h2>Привет 👋</h2>
-						<p style={{marginTop: "3px"}}>Я FullStack TypeScript & Python разработчик.</p>
+						<p style={{marginTop: "3px"}}>Я FullStack TypeScript && Python разработчик.</p>
 						<h2 style={{fontSize: "150%"}}><b>Немного о себе</b></h2>
 						<p style={{marginTop: "1%"}}>
 							<b>В сфере IT:</b> С 2019 года<br/>
-							<b>Часов в Wakatime:</b> <a target="_blank" href="https://wakatime.com/@AndcoolSystems" style={{color: "#eeeeee"}}>
-								{wakatime}</a>
+							<b>Часов в Wakatime:</b> <a target="_blank" href="https://wakatime.com/@AndcoolSystems" style={{color: "#eeeeee"}} id="waka"></a>
 								<br/>
 							<b>Реальное имя:</b> Андрей<br/>
 							<b>Возраст:</b> <span title="7 Сентября 2007г.">{age} лет</span><br/>
@@ -143,9 +159,9 @@ export default function Home() {
 						<img src="./static/fastapi.svg" alt="fastapi"></img>
 						<span>FastAPI</span>
 					</div>
-					<div style={{width: "5.5rem"}}>
+					<div>
 						<img src="./static/prisma.svg" alt="prisma"></img>
-						<span style={{fontSize: "90%"}}>Prisma ORM</span>
+						<span style={{textWrap: "nowrap"}}>Prisma ORM</span>
 					</div>
 				</div>
 				<h1 style={{fontSize: "150%", marginTop: "3rem"}}>Остальной стек</h1>
