@@ -5,7 +5,12 @@ import "./styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AndcoolSystems"
+  title: "AndcoolSystems",
+  icons: {
+    icon: '/static/andcool.jpg',
+    shortcut: '/static/andcool.jpg',
+    apple: '/static/andcool.jpg'
+  }
 };
 
 export default function RootLayout({

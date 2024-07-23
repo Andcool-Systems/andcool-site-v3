@@ -13,16 +13,45 @@
 }
 
 .animated{
-	animation: main_anim .8s cubic-bezier(.4,0,.2,1);;
+	animation: main_anim .8s cubic-bezier(.4,0,.2,1);
 }
 
 .name{
 	color: white;
 	margin: 0;
-	margin-left: 1.5rem;
 	margin-top: 8%;
 	font-size: 3rem;
 	font-weight: 450;
+}
+
+.name_cont {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 1.5rem;
+}
+
+.name_cont img {
+	width: 1.5rem;
+	filter: brightness(.5);
+}
+
+.name_cont p {
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+	gap: 5px;
+	animation: show_blur .4s;
+}
+
+@keyframes show_blur {
+	0% {
+		filter: blur(15px);
+	}
+
+	100% {
+		filter: blur(0px);
+	}
 }
 
 .nicks{
@@ -174,18 +203,40 @@
 	filter: drop-shadow(0px 0px 10px #555555);
 }
 
+.scroll_botom {
+	position: absolute;
+	bottom: 1rem;
+	display: flex;
+	align-items: center;
+	gap: .2rem;
+	font-size: 1.2rem;
+	opacity: 1;
+	translate: opacity .3s;
+}
+
+.scroll_botom img {
+	transform: rotate(-90deg);
+	width: 1.8rem;
+}
+
 @media(max-width: 970px){
 	.nicks{
 		flex-direction: column;
 	}
 	.name{
-		margin-left: 0;
 		margin-top: 2rem;
 		font-size: 2.5rem;
 	}
+
+	.name_cont {
+		margin-left: 0;
+	}
+
 	.stack{
 		width: 80%;
 	}
 	.social{flex-direction: column;}
+
+	.scroll_botom {display: none;}
 	.single{justify-content: space-between;}
 }

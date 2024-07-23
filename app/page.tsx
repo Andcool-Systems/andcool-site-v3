@@ -4,18 +4,28 @@ import styles from "./styles/page.module.css";
 import styles_pr from "./styles/projects.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { fu, fu_more, ppl, ppl_more, wetaher, wetaher_more, bf, bf_more } from "./data.tsx"
+import { fu, fu_more, ppl, ppl_more, wetaher, wetaher_more, bf, bf_more, oauth, oauth_more } from "./data.tsx"
 import * as ReactDOMServer from 'react-dom/server';
 import { Card3D } from "./card3d.tsx"
 
+interface Weather {
+	"status": string,
+	"message": string,
+	"temp": number,
+	"condition": string,
+	"icon": string
+}
 
 export default function Home() {
 	const [time, set_time] = useState("");
+	const [weather, setWeather] = useState<Weather>(null);
 	const age = Math.floor((Date.now() - 1189108801000) / (1000 * 60 * 60 * 24 * 365));
 
 	useEffect(() => {
 		window.onbeforeunload = function () {
-			window.scrollTo(0, 0);
+			if(!window.location.hash){
+				window.scrollTo(0, 0);
+			}
 		}
 		axios.get("https://wakatime.com/share/@AndcoolSystems/c20041f4-a965-47c3-ac36-7234e622a980.json").then(response => {
 			const wakatime = response.data.data.grand_total.human_readable_total_including_other_language;
@@ -44,41 +54,63 @@ export default function Home() {
 			});
 			set_time(time);
 		}, 60000);
+
+		axios.get('https://weather.andcool.ru/api?place=andcool&json=true').then((response) => {
+			if (response.status === 200) {
+				setWeather(response.data as Weather);
+			}
+		});
+
+		window.onscroll = () => {
+			const alpha = Math.max(0, (document.documentElement.clientHeight / 2) - window.scrollY) / (document.documentElement.clientHeight / 2);
+			const scroll_bottom = document.getElementById('scroll_bottom') as HTMLSpanElement;
+			scroll_bottom.style.opacity = alpha.toString();
+		}
 		
+		return () => {
+			window.onscroll = null;
+		}
 	}, []);
 
 	return (
 		<main style={{position: "relative", top: 0, right: 0, left: 0, bottom: 0}}>
 			<link rel="shortcut icon" href="/static/andcool.jpg" type="image/png"></link>
+			<meta property="og:title" content="AndcoolSystems" />
+			<meta property="og:description" content="Человек, программист, электронщик" />
+			<meta property="og:url" content="https://andcool.ru" />
+			<meta property="og:site_name" content="andcool.ru" />
+			<meta property="og:image" content="https://andcool.ru/static/andcool.jpg" />
+			<meta name="theme-color" content="#0b5000" />
+
 			<header className={styles.header}>
 				<div className={styles.animated}>
 					<div className={styles.nicks}>
-					<div className={`${styles.card} card`} onClick={() => {
-							const card = document.querySelector('.card') as HTMLDivElement;
-    						card.classList.toggle(styles.is_flipped);
-						}}>
+					<div className={`${styles.card} card`}>
         				<div className={styles.card_inner}>
 							<div className={styles.card_front}>
 								<img src="./static/andcool.jpg" alt="Front Image"/>
 							</div>
-							<div className={styles.card_back}>
-								<img src="https://api.pplbandage.ru/head3d/andcoolsystems" alt="Back Image"/>
-							</div>
 							</div>
 						</div>
-						<h1 className={styles.name}>AndcoolSystems</h1>
+						<div className={styles.name_cont}>
+							<h1 className={styles.name}>AndcoolSystems</h1>
+							{weather ? <p style={{margin: 0, color: 'gray', fontWeight: 500, height: '1.5rem'}}>
+								{Math.round(weather?.temp)}°C, <img alt="" src={`https://weather.andcool.ru/static/icons/${weather.icon}.svg`}/>{weather?.condition}
+								</p> : <span style={{height: '1.5rem'}}></span>
+							}
+						</div>
 					</div>
 					<div className={styles.hello}>
 						<h2>Привет 👋</h2>
 						<p style={{marginTop: "3px"}}>Я FullStack TypeScript && Python разработчик.</p>
-						<h2 style={{fontSize: "150%"}}><b>Немного о себе</b></h2>
 						<p style={{marginTop: "1%"}}>
 							<b>В сфере IT:</b> С 2019 года<br/>
 							<b>Часов в Wakatime:</b> <a target="_blank" href="https://wakatime.com/@AndcoolSystems" style={{color: "#eeeeee"}} id="waka"></a>
 								<br/>
 							<b>Реальное имя:</b> Андрей<br/>
 							<b>Возраст:</b> <span title="7 Сентября 2007г.">{age} лет</span><br/>
-							<b>Часовой пояс:</b> <span title={time}>GMT+3</span></p>
+							<b>Часовой пояс:</b> <span title={time}>GMT+3</span>
+						</p>
 					</div>
 					<div className={styles.social}>
 						<a href="https://github.com/Andcool-Systems" style={{color: "#eeeeee", textDecoration: "none"}} target="_blank">
@@ -119,6 +151,7 @@ export default function Home() {
 						</a>
 					</div>
 				</div>
+				<span className={styles.scroll_botom} id="scroll_bottom"><img alt="" src="/static/arrow.svg"/>Scroll bottom</span>
 			</header>
 			<h1>Основные <span className={styles.main_tech}>навыки</span></h1>
 			<div className={styles.stack}>
@@ -152,6 +185,26 @@ export default function Home() {
 				<h1 style={{fontSize: "150%", marginTop: "3rem"}}>Backend</h1>
 				<div className={styles.tech}>
 					<div>
+						<img src="./static/nest.svg" alt="nest"></img>
+						<span>NestJs</span>
+					</div>
+					<div>
+						<img src="./static/node.svg" alt="node"></img>
+						<span>NodeJs</span>
+					</div>
+					<div>
+						<img src="./static/express.svg" alt="express"></img>
+						<span>Express.js</span>
+					</div>
+					<div>
+						<img src="./static/prisma.svg" alt="prisma"></img>
+						<span style={{textWrap: "nowrap"}}>Prisma ORM</span>
+					</div>
+					<div>
+						<img src="./static/nginx.svg" alt="nginx"></img>
+						<span>Nginx</span>
+					</div>
+					<div>
 						<img src="./static/py.svg" alt="python"></img>
 						<span>Python 3</span>
 					</div>
@@ -159,13 +212,13 @@ export default function Home() {
 						<img src="./static/fastapi.svg" alt="fastapi"></img>
 						<span>FastAPI</span>
 					</div>
-					<div>
-						<img src="./static/prisma.svg" alt="prisma"></img>
-						<span style={{textWrap: "nowrap"}}>Prisma ORM</span>
-					</div>
 				</div>
 				<h1 style={{fontSize: "150%", marginTop: "3rem"}}>Остальной стек</h1>
 				<div className={styles.tech}>
+					<div>
+						<img src="./static/py.svg" alt="python"></img>
+						<span>Python 3</span>
+					</div>
 					<div>
 						<img src="./static/cpp.svg" alt="cpp"></img>
 						<span>C++</span>
@@ -194,7 +247,7 @@ export default function Home() {
 			</div>
 			<h1>Последние <span className={styles.projects_txt}>проекты</span></h1>
 			<div className={styles_pr.main}>
-				<div className={styles_pr.child}>
+				<div className={styles_pr.child} id="fileuploader">
 					<div className={styles_pr.head}>
 						<Card3D>
 							<img src="./static/fu.png"></img>
@@ -247,7 +300,7 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className={styles_pr.child}>
+				<div className={styles_pr.child} id="pplbandage">
 					<div className={styles_pr.head}>
 						<Card3D>
 							<img className={styles_pr.ppl} src="./static/ppl.png"></img>
@@ -300,7 +353,69 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className={styles_pr.child}>
+				<div className={styles_pr.child} id="mc-oauth">
+					<div className={styles_pr.head}>
+						<Card3D>
+							<img style={{boxShadow: "#009149 0px 0px 200px"}} src="./static/mc-oauth.png"></img>
+						</Card3D>
+						<div className={styles_pr.name}>
+							<h1 style={{margin: 0, marginBottom: "3px"}}>MC-OAuth</h1>
+							<p style={{margin: 0}}>Начало разработки: 31.05.2024</p>
+						</div>
+					</div>
+					<div className={styles_pr.body} id="oauth_body">
+						<h1>Описание и история создания</h1>
+						<p id="oauth">
+							{oauth}
+						</p>
+						<button id="oauth_more" onClick={() => {
+							let pplp = document.getElementById("oauth") as HTMLParagraphElement;
+							pplp.innerHTML += ReactDOMServer.renderToString(oauth_more);
+
+							(document.getElementById("oauth_more") as HTMLButtonElement).style.display = "none";
+							(document.getElementById("oauth_less") as HTMLButtonElement).style.display = "block";
+						}}>Ещё...</button>
+
+						<button id="oauth_less" style={{display: "none"}} onClick={() => {
+							let pplp = document.getElementById("oauth") as HTMLParagraphElement;
+							pplp.innerHTML = ReactDOMServer.renderToString(oauth);
+
+							(document.getElementById("oauth_more") as HTMLButtonElement).style.display = "block";
+							(document.getElementById("oauth_less") as HTMLButtonElement).style.display = "none";
+						}}>Скрыть</button>
+					</div>
+					<div className={styles_pr.footer}>
+						<a href="https://github.com/Andcool-Systems/mc-oauth" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Исходный код плагина</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
+						<a href="https://modrinth.com/plugin/mc-oauth" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Страница на Modrinth</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
+						<a href="https://github.com/Andcool-Systems/MC-OAuth_server" target="_blank" style={{textDecoration: "none"}}>
+							<div className={styles_pr.button}>
+								<p>Исходный код сервера</p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" fill="currentColor" viewBox="0 0 16 16">
+									<path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+									<path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+								</svg>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div className={styles_pr.child} id="weatherWidget">
 					<div className={styles_pr.head}>
 						<Card3D>
 							<img className={styles_pr.weather} src="./static/weather.svg" alt="weather"></img>
@@ -317,6 +432,7 @@ export default function Home() {
 						</p>
 						<button id="weather_more" onClick={() => {
 							let weatherp = document.getElementById("weather") as HTMLParagraphElement;
+							console.log(weatherp)
 							weatherp.innerHTML += ReactDOMServer.renderToString(wetaher_more);
 
 							(document.getElementById("weather_more") as HTMLButtonElement).style.display = "none";
@@ -353,7 +469,7 @@ export default function Home() {
 					</div>
 				</div>
 				
-				<div className={styles_pr.child}>
+				<div className={styles_pr.child} id="brainfuck">
 					<div className={styles_pr.head}>
 						<Card3D>
 							<img className={styles_pr.bf} src="./static/bf.png" alt="bf"></img>
