@@ -1,15 +1,15 @@
-.main{
+.main {
     width: 40%;
     margin-bottom: 1rem;
 }
 
-.child{
+.child {
     max-width: 100%;
     margin-bottom: 1rem;
 }
 
 
-.head{
+.head {
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -20,56 +20,56 @@
     border-top-right-radius: 15px;
 }
 
-.head img{
+.head img {
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
     box-shadow: #3E3E3E 0px 0px 200px;
 }
 
-.head .ppl{
+.head .ppl {
     box-shadow: #a0a0a0 0px 0px 200px;
 }
 
-.head .weather{
+.head .weather {
     box-shadow: #4F5D73 0px 0px 200px;
 }
 
-.name{
+.name {
     text-align: left;
     margin-left: 2rem;
 }
 
-.name p{
+.name p {
     font-size: 90%;
     color: #C0C0C0;
 }
 
 
-.body{
+.body {
     border: 2px #5B5959 solid;
     text-align: left;
     padding: 1rem;
     overflow: hidden;
 }
 
-.body h1{
+.body h1 {
     margin: 0;
     font-size: 150%;
     margin-bottom: 1rem;
 }
 
-.body p{
-    font-size: 110%;
+.body p {
+    font-size: 1rem;
     box-sizing: border-box;
     margin: 0;
 }
 
-.body a{
+.body a {
     color: white;
 }
 
-.body button{
+.body button {
     background: none;
     border: none;
     color: #adadad;
@@ -79,7 +79,7 @@
     margin-top: 5px;
 }
 
-.footer{
+.footer {
     border: 2px #5B5959 solid;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -90,7 +90,7 @@
     flex-wrap: wrap;
 }
 
-.button{
+.button {
     display: flex;
     padding: 0.7rem;
     border: 2px #5B5959 solid;
@@ -101,23 +101,39 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-.button:hover{
-    background-color:#191b1f;
+.button:hover {
+    background-color: #191b1f;
 }
 
-.button p{
+.button p {
     margin: 0;
     font-size: 110%;
 }
 
-.button svg{
+.button svg {
     margin-left: 1rem;
     width: 1.3rem;
 }
 
-@media(max-width: 970px){
-    .main{width: 90%;}
-    .head{flex-direction: column; vertical-align: middle;}
-    .name{margin-left: 0; margin-top: 0.5rem; display: flex; flex-direction: column;align-items: center;}
-    .name h1{text-align: center;}
+@media(max-width: 970px) {
+    .main {
+        width: 90%;
+    }
+
+    .head {
+        flex-direction: column;
+        vertical-align: middle;
+    }
+
+    .name {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .name h1 {
+        text-align: center;
+    }
 }

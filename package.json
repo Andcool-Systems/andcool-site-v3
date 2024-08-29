@@ -6,7 +6,8 @@
     "dev": "next dev -p 8001",
     "build": "next build",
     "start": "next start -p 8001",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prod": "next build && next start -p 8001"
   },
   "dependencies": {
     "axios": "^1.6.8",

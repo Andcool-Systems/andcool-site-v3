@@ -1,4 +1,4 @@
-body{
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -7,61 +7,69 @@ body{
     color: #eeeeee;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h2{
-    font-size: 220%;
-    font-weight: 500;
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
     margin-bottom: 0;
+    z-index: 1;
+    position: relative;
 }
 
-p, b, h1, span{
-    overflow-wrap: break-word; /* Для поддержки большинства браузеров */
-    word-wrap: break-word; /* Альтернативное свойство для устаревших браузеров */
+p,
+b,
+h1,
+span {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    z-index: 1000;
+    position: relative;
 }
 
-p{
-    font-size: 130%;
+p {
+    font-size: 1.1rem;
+    z-index: 1;
 }
 
 ::-webkit-scrollbar {
-	width: 10px;
-	background-color: rgb(30, 30, 30);
-  }
-  
-::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background-color: rgb(60, 60, 60);
+    width: 10px;
+    background-color: rgb(30, 30, 30);
 }
 
-footer{
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(60, 60, 60);
+}
+
+footer {
     width: 100%;
     text-align: left;
     padding: 5px;
     box-sizing: border-box;
 }
 
-footer p{
+footer p {
     margin: 0;
-    color:#777777;
+    color: #777777;
     font-size: 100%;
 }
 
 
-@media(max-width: 767px){
-    h1{
+@media(max-width: 767px) {
+    h1 {
         font-size: 180%;
     }
 
-    h2{
+    h2 {
         font-size: 180%;
     }
 
-    p{
+    p {
         font-size: 100%;
     }
 }
