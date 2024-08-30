@@ -71,14 +71,6 @@ export default function Home({ birthday, timeServer }: { birthday: boolean, time
 
 	return (
 		<main style={{ position: "relative", top: 0, right: 0, left: 0, bottom: 0 }}>
-			<link rel="shortcut icon" href="/static/andcool.jpg" type="image/png"></link>
-			<meta property="og:title" content="AndcoolSystems" />
-			<meta property="og:description" content="Человек, программист, электронщик" />
-			<meta property="og:url" content="https://andcool.ru" />
-			<meta property="og:site_name" content="andcool.ru" />
-			<meta property="og:image" content="https://andcool.ru/static/andcool.jpg" />
-			<meta name="theme-color" content="#0b5000" />
-
 			<header className={`${styles.header} ${birthday && styles.header_birthday}`}>
 				<div className={styles.animated}>
 					<div className={styles.nicks}>
