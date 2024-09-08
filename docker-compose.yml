@@ -1,10 +1,17 @@
+version: "3.8"
+
 services:
   andcool_site:
     container_name: andcool_site
-    ports:
-      - "4000:4000"
-    build: 
-      context: ./
+    build:
+      context: .
       dockerfile: Dockerfile
     command: npm run start
-    restart: unless-stopped
+    restart: always
+    networks:
+      - nginx
+
+networks:
+  nginx:
+    external: true
+    name: nginx

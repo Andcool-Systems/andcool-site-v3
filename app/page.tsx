@@ -10,7 +10,9 @@ const getTime = (): string => {
     });
 }
 
-const Home = () => {
+export const revalidate = 0;
+
+const Home = async () => {
     const date = new Date();
 
     const day = date.getDate();

@@ -6,14 +6,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { fu, fu_more, ppl, ppl_more, weather_, weather_more, bf, bf_more, oauth, oauth_more } from "./data.tsx"
 import * as ReactDOMServer from 'react-dom/server';
-import { Card3D } from "./card3d.tsx"
+import { Card3D } from "./card3d.tsx";
 
 interface Weather {
-	"status": string,
-	"message": string,
-	"temp": number,
-	"condition": string,
-	"icon": string
+	status: string,
+	message: string,
+	temp: number,
+	condition: string,
+	icon: string
 }
 
 const getTime = (): string => {
@@ -26,10 +26,26 @@ const getTime = (): string => {
 	});
 }
 
+const fullYearsDifference = (date1: Date, date2: Date) => {
+	const year1 = date1.getFullYear();
+	const year2 = date2.getFullYear();
+	let diff = year2 - year1;
+
+	// Учитываем, что год может быть неполным
+	if (
+		date2.getMonth() < date1.getMonth() ||
+		(date2.getMonth() === date1.getMonth() && date2.getDate() < date1.getDate())
+	) {
+		diff--;
+	}
+
+	return diff;
+}
+
 export default function Home({ birthday, timeServer }: { birthday: boolean, timeServer: string }) {
 	const [time, set_time] = useState(timeServer);
 	const [weather, setWeather] = useState<Weather>(null);
-	const age = Math.floor((Date.now() - 1189108801000) / (1000 * 60 * 60 * 24 * 365));
+	const age = fullYearsDifference(new Date('2007-09-07'), new Date());
 
 	useEffect(() => {
 		window.onbeforeunload = function () {
