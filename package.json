@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8001",
+    "dev": "next dev -p 8005",
     "build": "next build",
-    "start": "next start -p 8001",
+    "start": "next start -p 8005",
     "lint": "next lint",
-    "prod": "next build && next start -p 8001"
+    "prod": "next build && next start -p 8005"
   },
   "dependencies": {
     "@tabler/icons": "^3.14.0",
