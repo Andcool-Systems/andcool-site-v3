@@ -10,8 +10,6 @@ const getTime = (): string => {
     });
 }
 
-export const revalidate = 0;
-
 const Home = async () => {
     const date = new Date();
 
@@ -24,3 +22,4 @@ const Home = async () => {
 }
 
 export default Home;
+export const dynamic = 'force-dynamic';
