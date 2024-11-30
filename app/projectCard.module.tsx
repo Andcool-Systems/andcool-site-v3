@@ -43,7 +43,7 @@ const Card = ({ project }: { project: ProjectProp }) => {
             </div>
             <div className={styles_pr.body}>
                 <h1>Описание</h1>
-                <p>{expanded ? <>{project.short_description}{project.full_description}</> : project.short_description}</p>
+                <p>{expanded ? <>{project.short_description}<br /><br />{project.full_description}</> : project.short_description}</p>
                 {!!project.full_description && <button onClick={() => setExpanded(prev => !prev)}>{expanded ? 'Скрыть' : 'Ещё...'}</button>}
             </div>
             <div className={styles_pr.footer}>{links}</div>
