@@ -78,11 +78,6 @@
 	gap: 0.7rem;
 }
 
-.single svg {
-	width: 34px;
-}
-
-
 .single {
 	cursor: pointer;
 	border: 2px #5b595957 solid;
@@ -93,16 +88,12 @@
 	padding: 0.6rem;
 	background-color: none;
 	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+	gap: 1rem;
 }
 
 .single:hover {
 	background-color: #5b595927;
-	transform: translateY(-0.5rem) scale(1.05);
-}
-
-.single span {
-	margin-left: 1.5rem;
-	margin-right: 1.5rem;
+	transform: translateY(-0.3rem) scale(1.05);
 }
 
 .main_tech {
