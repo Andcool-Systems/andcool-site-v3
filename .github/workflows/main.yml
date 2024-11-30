@@ -1,0 +1,29 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "**/README.md"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Execute remote commands
+        env:
+          SSHPASS: ${{ secrets.ROOT_SSH_PASSWORD }}
+        run: |
+          sshpass -e ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} << 'EOF'
+            cd /home/andcoolsystems/andcool-site-v3
+            git fetch
+            git stash
+            git merge '@{u}'
+            docker compose build
+            docker compose up -d
+          EOF

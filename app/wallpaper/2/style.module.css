@@ -1,0 +1,30 @@
+.container,
+.dust {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dust {
+    position: absolute;
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.dust_1 {
+    background-image: url("/static/wallpaper_2/dust/y_cg2_dust1.png");
+}
+
+.dust_2 {
+    background-image: url("/static/wallpaper_2/dust/y_cg2_dust2.png");
+}
+
+.dust_3 {
+    background-image: url("/static/wallpaper_2/dust/y_cg2_dust3.png");
+}
+
+.dust_4 {
+    background-image: url("/static/wallpaper_2/dust/y_cg2_dust4.png");
+}

@@ -8,8 +8,6 @@
 
 # testing
 /coverage
-/public/static/wallpaper_2
-/app/wallpaper/2
 
 # next.js
 /.next/
