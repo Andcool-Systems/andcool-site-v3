@@ -4,16 +4,7 @@ import styles from "./styles/page.module.css";
 import styles_pr from "./styles/projects.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {
-	bf,
-	bf_more,
-	oauth,
-	oauth_more,
-	newAndcool,
-	projects
-} from "./data.tsx"
-import * as ReactDOMServer from 'react-dom/server';
-import { Card3D } from "./card3d.tsx";
+import { projects } from "./data.tsx"
 import Card from "./projectCard.module.tsx";
 
 interface Weather {
@@ -39,7 +30,6 @@ const fullYearsDifference = (date1: Date, date2: Date) => {
 	const year2 = date2.getFullYear();
 	let diff = year2 - year1;
 
-	// Учитываем, что год может быть неполным
 	if (
 		date2.getMonth() < date1.getMonth() ||
 		(date2.getMonth() === date1.getMonth() && date2.getDate() < date1.getDate())
