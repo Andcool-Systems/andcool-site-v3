@@ -144,7 +144,7 @@ export default function Home({ birthday, timeServer }: { birthday: boolean, time
 						</a>
 					</div>
 				</div>
-				<span className={styles.scroll_bottom} id="scroll_bottom"><img alt="" src="/static/arrow.svg" />Scroll bottom</span>
+				<span className={styles.scroll_bottom} id="scroll_bottom"><img alt="" src="/static/arrow.svg" />Scroll down</span>
 			</header>
 			<h1>Основные <span className={styles.main_tech}>навыки</span></h1>
 			<div className={styles.stack}>
