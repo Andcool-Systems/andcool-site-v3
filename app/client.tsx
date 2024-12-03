@@ -10,6 +10,7 @@ import LinkIcon from '@/app/static/link.svg';
 import GithubIcon from '@/app/static/github.svg';
 import DiscordIcon from '@/app/static/discord.svg';
 import TelegramIcon from '@/app/static/telegram.svg';
+import ClockUpIcon from '@/app/static/clock_up.svg';
 
 interface Weather {
 	status: string,
@@ -139,6 +140,14 @@ export default function Home({ birthday, timeServer }: { birthday: boolean, time
 							<div className={styles.single}>
 								<TelegramIcon />
 								<span><b>Telegram</b></span>
+								<LinkIcon />
+							</div>
+						</a>
+
+						<a href="https://status.andcool.ru" style={{ color: "#eeeeee", textDecoration: "none" }} target="_blank">
+							<div className={styles.single}>
+								<ClockUpIcon />
+								<span><b>Status page</b></span>
 								<LinkIcon />
 							</div>
 						</a>
