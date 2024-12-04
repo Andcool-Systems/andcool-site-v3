@@ -15,9 +15,10 @@ const Home = async () => {
 
     const day = date.getDate();
     const month = date.getMonth() + 1;
-    const birthday = day == 7 && month == 9;
+    const birthday = day === 7 && month === 9;
+    const christmas = (day === 31 && month === 12) || (day === 1 && month === 1);
     return (
-        <ClientHome birthday={birthday} timeServer={getTime()} />
+        <ClientHome birthday={birthday} christmas={christmas} timeServer={getTime()} />
     )
 }
 

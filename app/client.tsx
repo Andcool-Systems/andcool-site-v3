@@ -45,7 +45,7 @@ const fullYearsDifference = (date1: Date, date2: Date) => {
 	return diff;
 }
 
-export default function Home({ birthday, timeServer }: { birthday: boolean, timeServer: string }) {
+export default function Home({ birthday, timeServer, christmas }: { birthday: boolean, timeServer: string, christmas: boolean }) {
 	const [time, set_time] = useState(timeServer);
 	const [weather, setWeather] = useState<Weather>(null);
 	const age = fullYearsDifference(new Date('2007-09-07'), new Date());
@@ -92,7 +92,7 @@ export default function Home({ birthday, timeServer }: { birthday: boolean, time
 
 	return (
 		<main style={{ position: "relative", top: 0, right: 0, left: 0, bottom: 0 }}>
-			<header className={`${styles.header} ${birthday && styles.header_birthday}`}>
+			<header className={`${styles.header} ${(birthday || christmas) && styles.header_birthday}`}>
 				<div className={styles.animated}>
 					<div className={styles.nicks}>
 						<div className={`${styles.card} card`}>
@@ -101,6 +101,7 @@ export default function Home({ birthday, timeServer }: { birthday: boolean, time
 									<img src="./static/andcool.jpg" alt="Front Image" />
 								</div>
 								{birthday && <img src="./static/party-hat.png" className={styles.party_hat} />}
+								{christmas && <img src="./static/christmas-hat.png" className={styles.christmas_hat} />}
 							</div>
 						</div>
 						<div className={styles.name_cont}>
