@@ -90,6 +90,14 @@ export default function Home({ birthday, timeServer, christmas }: { birthday: bo
 
 	const projects_el = projects.map(project => <Card key={project.id} project={project} />);
 
+	const scrollDown = () => {
+		const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+		window.scrollTo({
+			top: vh,
+			behavior: 'smooth'
+		});
+	}
+
 	return (
 		<main style={{ position: "relative", top: 0, right: 0, left: 0, bottom: 0 }}>
 			<header className={`${styles.header} ${(birthday || christmas) && styles.header_birthday}`}>
@@ -154,7 +162,14 @@ export default function Home({ birthday, timeServer, christmas }: { birthday: bo
 						</a>
 					</div>
 				</div>
-				<span className={styles.scroll_bottom} id="scroll_bottom"><img alt="" src="/static/arrow.svg" />Scroll down</span>
+				<span
+					className={styles.scroll_bottom}
+					id="scroll_bottom"
+					onClick={scrollDown}
+					style={{ cursor: 'pointer' }}
+				>
+					<img alt="" src="/static/arrow.svg" />Scroll down
+				</span>
 			</header>
 			<h1>Основные <span className={styles.main_tech}>навыки</span></h1>
 			<div className={styles.stack}>
