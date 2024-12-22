@@ -11,6 +11,9 @@ import GithubIcon from '@/app/static/github.svg';
 import DiscordIcon from '@/app/static/discord.svg';
 import TelegramIcon from '@/app/static/telegram.svg';
 import ClockUpIcon from '@/app/static/clock_up.svg';
+import { IconBrandCloudflare, IconBrandCpp, IconBrandCss3, IconBrandDocker, IconBrandHtml5, IconBrandJavascript, IconBrandNextjs, IconBrandNodejs, IconBrandPrisma, IconBrandPython, IconBrandReact, IconBrandTypescript, IconCode, IconDeviceDesktop, IconServer } from "@tabler/icons-react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface Weather {
 	status: string,
@@ -173,103 +176,117 @@ export default function Home({ birthday, timeServer, christmas }: { birthday: bo
 			</header>
 			<h1>Основные <span className={styles.main_tech}>навыки</span></h1>
 			<div className={styles.stack}>
-				<h1 style={{ fontSize: "150%" }}>Frontend</h1>
+				<h1 style={{
+					fontSize: "150%",
+					display: 'flex',
+					alignItems: 'center',
+					gap: '.3rem'
+				}}>
+					<IconDeviceDesktop style={{ filter: 'drop-shadow( 0px 0px 25px #149ECA)' }} />Frontend</h1>
 				<div className={styles.tech}>
 					<div>
-						<img src="./static/react.svg" alt="react"></img>
+						<IconBrandReact width={64} height={64} strokeWidth={1.5} />
 						<span>ReactJs</span>
 					</div>
 					<div>
-						<img src="./static/nextjs.svg" alt="nextjs"></img>
+						<IconBrandNextjs width={64} height={64} strokeWidth={1.5} />
 						<span>NextJs</span>
 					</div>
 					<div>
-						<img src="./static/ts.svg" alt="ts"></img>
+						<IconBrandTypescript width={64} height={64} strokeWidth={1.5} />
 						<span>TypeScript</span>
 					</div>
 					<div>
-						<img src="./static/js.svg" alt="js"></img>
+						<IconBrandJavascript width={64} height={64} strokeWidth={1.5} />
 						<span>JavaScript</span>
 					</div>
 					<div>
-						<img src="./static/html.svg" alt="html"></img>
+						<IconBrandHtml5 width={64} height={64} strokeWidth={1.5} />
 						<span>HTML 5</span>
 					</div>
 					<div>
-						<img src="./static/css.svg" alt="css"></img>
+						<IconBrandCss3 width={64} height={64} strokeWidth={1.5} />
 						<span>CSS 3</span>
 					</div>
 				</div>
-				<h1 style={{ fontSize: "150%", marginTop: "3rem" }}>Backend</h1>
+				<h1 style={{
+					fontSize: "150%",
+					marginTop: "3rem",
+					display: 'flex',
+					alignItems: 'center',
+					gap: '.3rem'
+				}}>
+					<IconServer style={{ filter: 'drop-shadow( 0px 0px 25px #ea2845)' }} />Backend</h1>
 				<div className={styles.tech}>
 					<div>
-						<img src="./static/nest.svg" alt="nest"></img>
+						<Image src="./static/nest.svg" alt="nest" width={64} height={64} />
 						<span>NestJs</span>
 					</div>
 					<div>
-						<img src="./static/node.svg" alt="node"></img>
+						<IconBrandNodejs width={64} height={64} strokeWidth={1.5} />
 						<span>NodeJs</span>
 					</div>
 					<div>
-						<img src="./static/express.svg" alt="express"></img>
+						<Image src="./static/express.svg" alt="express" width={64} height={64} />
 						<span>Express.js</span>
 					</div>
 					<div>
-						<img src="./static/prisma.svg" alt="prisma"></img>
+						<IconBrandPrisma width={64} height={64} strokeWidth={1.5} />
 						<span style={{ textWrap: "nowrap" }}>Prisma ORM</span>
 					</div>
 					<div>
-						<img src="./static/nginx.svg" alt="nginx"></img>
+						<Image src="./static/nginx.svg" alt="nginx" width={64} height={64} />
 						<span>Nginx</span>
 					</div>
 					<div>
-						<img src="./static/py.svg" alt="python"></img>
+						<IconBrandPython width={64} height={64} strokeWidth={1.5} />
 						<span>Python 3</span>
 					</div>
 					<div>
-						<img src="./static/fastapi.svg" alt="fastapi"></img>
+						<Image src="./static/fastapi.svg" alt="fastapi" width={64} height={64} />
 						<span>FastAPI</span>
 					</div>
 				</div>
-				<h1 style={{ fontSize: "150%", marginTop: "3rem" }}>Остальной стек</h1>
+				<h1 style={{
+					fontSize: "150%",
+					marginTop: "3rem",
+					display: 'flex',
+					alignItems: 'center',
+					gap: '.3rem'
+				}}>
+					<IconCode style={{ filter: 'drop-shadow( 0px 0px 25px #0B5000)' }} />Остальной стек</h1>
 				<div className={styles.tech}>
 					<div>
-						<img src="./static/py.svg" alt="python"></img>
-						<span>Python 3</span>
-					</div>
-					<div>
-						<img src="./static/cpp.svg" alt="cpp"></img>
+						<IconBrandCpp width={64} height={64} strokeWidth={1.5} />
 						<span>C++</span>
 					</div>
 					<div>
-						<img src="./static/java.svg" alt="java"></img>
+						<Image src="./static/java.svg" alt="java" width={64} height={64} />
 						<span>Java</span>
 					</div>
 					<div>
-						<img src="./static/processing.svg" alt="processing"></img>
-						<span>Processing</span>
-					</div>
-					<div>
-						<img src="./static/arduino.svg" alt="arduino"></img>
-						<span>Arduino</span>
-					</div>
-					<div>
-						<img src="./static/rpi.svg" alt="rpi"></img>
-						<span style={{ textAlign: "center" }}>Raspberry pi</span>
-					</div>
-					<div>
-						<img src="./static/docker.svg" alt="docker"></img>
+						<IconBrandDocker width={64} height={64} strokeWidth={1.5} />
 						<span>Docker</span>
+					</div>
+					<div>
+						<IconBrandCloudflare width={64} height={64} strokeWidth={1.5} />
+						<span>CloudFlare</span>
 					</div>
 				</div>
 			</div>
 			<h1>Последние <span className={styles.projects_txt}>проекты</span></h1>
 			<div className={styles_pr.main}>
 				{projects_el}
+				<Link href="https://github.com/Andcool-Systems?tab=repositories" target="_blank" style={{ textDecoration: "none" }}>
+					<div className={styles_pr.button} style={{ borderWidth: '2px', justifyContent: 'center' }}>
+						<LinkIcon />
+						<p style={{ fontFamily: 'inherit' }}>Больше проектов</p>
+					</div>
+				</Link>
 			</div>
 
 			<footer>
-				<p>AndcoolSystems 2018–{new Date().getFullYear()}</p>
+				<p>AndcoolSystems, andcool, эндкул 2018–{new Date().getFullYear()}</p>
 			</footer>
 		</main>
 	);

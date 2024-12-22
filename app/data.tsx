@@ -65,6 +65,13 @@ const activity_more = <>
     <img style={{ maxWidth: "100%" }} src="https://activity.andcool.ru/t9mdtk/widget" alt="Activity widget" />
 </>;
 
+const json_stats = <>Виджет для профиля GitHub в виде редактора кода VSCode и JSON.</>;
+const json_stats_more = <>
+    Этот виджет обобщает все ранее созданные проекты для моего профиля GitHub и делает его более структурированным и менее разрозненным.<br /><br />
+    Основной идеей, а так же отличительной чертой проекта является динамический парсинг JavaScript объектов в SVG, что позволяет отображать данные любой сложности и вложенности, ограничиваясь только размерами SVG и максимальной глубиной рекурсии в NodeJS. <br /><br />
+    <img style={{ maxWidth: "100%" }} src="https://json-stats.andcool.ru" alt="Json stats widget" />
+</>;
+
 export const projects = [
     {
         id: 'pplbandage',
@@ -154,6 +161,27 @@ export const projects = [
             {
                 title: 'Исходный код сервера',
                 url: 'https://github.com/Andcool-Systems/MC-OAuth_server'
+            }
+        ]
+    },
+    {
+        id: 'json-stats',
+        title: 'JSON Stats Widget',
+        creation_date: '19.12.2024',
+        icon: {
+            url: './static/json_stats.svg',
+            color: '#1e1e1e'
+        },
+        short_description: json_stats,
+        full_description: json_stats_more,
+        links: [
+            {
+                title: 'Виджет',
+                url: 'https://json-stats.andcool.ru'
+            },
+            {
+                title: 'Исходный код',
+                url: 'https://github.com/Andcool-Systems/json-stats'
             }
         ]
     },

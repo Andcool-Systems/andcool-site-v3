@@ -1,0 +1,9 @@
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        text {
+        transform: translate(3.2px, 16.5px);
+        }
+    </style>
+    <rect fill="#1e1e1e" x="0" y="0" width="24" height="24" />
+    <text font-family="Consolas, monospace" fill="#ffd700">{}</text>
+</svg>

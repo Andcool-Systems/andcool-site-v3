@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card3D } from "./card3d";
 import styles_pr from "./styles/projects.module.css";
 import LinkIcon from '@/app/static/link.svg';
+import Link from "next/link";
 
 interface ProjectProp {
     id: string;
@@ -22,12 +23,12 @@ interface ProjectProp {
 const Card = ({ project }: { project: ProjectProp }) => {
     const [expanded, setExpanded] = useState<boolean>(false);
     const links = project.links.map(link =>
-        <a key={link.url} href={link.url} target="_blank" style={{ textDecoration: "none" }}>
+        <Link key={link.url} href={link.url} target="_blank" style={{ textDecoration: "none" }}>
             <div className={styles_pr.button}>
                 <p>{link.title}</p>
                 <LinkIcon />
             </div>
-        </a>
+        </Link>
     );
 
     return (
