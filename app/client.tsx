@@ -32,26 +32,9 @@ const getTime = (): string => {
 		timeZone: 'Etc/GMT-3'
 	});
 }
-
-const fullYearsDifference = (date1: Date, date2: Date) => {
-	const year1 = date1.getFullYear();
-	const year2 = date2.getFullYear();
-	let diff = year2 - year1;
-
-	if (
-		date2.getMonth() < date1.getMonth() ||
-		(date2.getMonth() === date1.getMonth() && date2.getDate() < date1.getDate())
-	) {
-		diff--;
-	}
-
-	return diff;
-}
-
-export default function Home({ birthday, timeServer, christmas }: { birthday: boolean, timeServer: string, christmas: boolean }) {
-	const [time, set_time] = useState(timeServer);
+export default function Home(props: { birthday: boolean, timeServer: string, christmas: boolean, year: number, age: number }) {
+	const [time, set_time] = useState(props.timeServer);
 	const [weather, setWeather] = useState<Weather>(null);
-	const age = fullYearsDifference(new Date('2007-09-07'), new Date());
 
 	useEffect(() => {
 		window.onbeforeunload = function () {
@@ -103,7 +86,7 @@ export default function Home({ birthday, timeServer, christmas }: { birthday: bo
 
 	return (
 		<main style={{ position: "relative", top: 0, right: 0, left: 0, bottom: 0 }}>
-			<header className={`${styles.header} ${(birthday || christmas) && styles.header_birthday}`}>
+			<header className={`${styles.header} ${(props.birthday || props.christmas) && styles.header_birthday}`}>
 				<div className={styles.animated}>
 					<div className={styles.nicks}>
 						<div className={`${styles.card} card`}>
@@ -111,8 +94,8 @@ export default function Home({ birthday, timeServer, christmas }: { birthday: bo
 								<div className={styles.card_front}>
 									<img src="./static/andcool.jpg" alt="Front Image" />
 								</div>
-								{birthday && <img src="./static/party-hat.png" className={styles.party_hat} />}
-								{christmas && <img src="./static/christmas-hat.png" className={styles.christmas_hat} />}
+								{props.birthday && <img src="./static/party-hat.png" className={styles.party_hat} />}
+								{props.christmas && <img src="./static/christmas-hat.png" className={styles.christmas_hat} />}
 							</div>
 						</div>
 						<div className={styles.name_cont}>
@@ -125,7 +108,7 @@ export default function Home({ birthday, timeServer, christmas }: { birthday: bo
 					</div>
 					<div className={styles.hello}>
 						<h2>Привет👋</h2>
-						<p style={{ marginTop: "3px" }}>Меня зовут Андрей, мне <span title="7 Сентября 2007г.">{age} лет</span>. Я Full Stack TypeScript && Python разработчик.<br />
+						<p style={{ marginTop: "3px" }}>Меня зовут Андрей, мне <span title="7 Сентября 2007г.">{props.age} лет</span>. Я Full Stack TypeScript && Python разработчик.<br />
 							Занимаюсь разработкой сайтов, а так же пишу Телеграм ботов на заказ <span style={{ color: 'grey', fontSize: '.9rem' }}>(и для себя тоже).</span></p>
 						<p style={{ marginTop: "1%" }}>
 							<b>Часов в Wakatime:</b> <a target="_blank" href="https://wakatime.com/@AndcoolSystems" style={{ color: "#eeeeee" }} id="waka"></a>
@@ -286,7 +269,7 @@ export default function Home({ birthday, timeServer, christmas }: { birthday: bo
 			</div>
 
 			<footer>
-				<p>AndcoolSystems, andcool, эндкул 2018–{new Date().getFullYear()}</p>
+				<p>AndcoolSystems, andcool, эндкул 2018–{props.year}</p>
 			</footer>
 		</main>
 	);
