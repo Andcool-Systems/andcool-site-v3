@@ -32,7 +32,7 @@ const getTime = (): string => {
 		timeZone: 'Etc/GMT-3'
 	});
 }
-export default function Home(props: { birthday: boolean, timeServer: string, christmas: boolean, year: number, age: number }) {
+export default function Home(props: { birthday: boolean, timeServer: string, christmas: boolean, year: string, age: number }) {
 	const [time, set_time] = useState(props.timeServer);
 	const [weather, setWeather] = useState<Weather>(null);
 

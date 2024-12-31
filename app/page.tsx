@@ -33,13 +33,15 @@ const Home = async () => {
     const month = date.getMonth() + 1;
     const birthday = day === 7 && month === 9;
     const christmas = (day === 31 && month === 12) || (day === 1 && month === 1);
-    const age = fullYearsDifference(new Date('2007-09-07'), new Date());
+    const age = fullYearsDifference(new Date('2007-09-07'), date);
+
+    const year = new Intl.DateTimeFormat('en-US', { timeZone: 'Etc/GMT-3', year: 'numeric' }).format(date);
     return (
         <ClientHome
             birthday={birthday}
             christmas={christmas}
             timeServer={getTime()}
-            year={new Date().getFullYear()}
+            year={year}
             age={age}
         />
     )
