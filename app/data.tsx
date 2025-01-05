@@ -151,16 +151,16 @@ export const projects = [
                 url: 'https://mc-oauth.andcool.ru'
             },
             {
-                title: 'Исходный код плагина',
+                title: 'Исходный код сервера',
                 url: 'https://github.com/Andcool-Systems/mc-oauth'
+            },
+            {
+                title: 'Исходный код плагина',
+                url: 'https://github.com/Andcool-Systems/mc-oauth-plugin'
             },
             {
                 title: 'Страница на Modrinth',
                 url: 'https://modrinth.com/plugin/mc-oauth'
-            },
-            {
-                title: 'Исходный код сервера',
-                url: 'https://github.com/Andcool-Systems/MC-OAuth_server'
             }
         ]
     },
