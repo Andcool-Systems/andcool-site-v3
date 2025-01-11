@@ -233,6 +233,39 @@
 	transform: scale(-1.4, 1.4) rotate(4deg);
 }
 
+.buyMeACoffee {
+	position: absolute;
+	z-index: 99;
+	top: .5rem;
+	right: 0;
+
+	transform: translateX(calc(100% - (1rem + 24px)));
+
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+
+	background-color: #222329;
+	padding: .5rem;
+	border-radius: 8px 0 0 8px;
+	border: 1px #333845 solid;
+	border-right: none;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+
+	transition: transform 250ms;
+}
+
+.buyMeACoffee p {
+	font-size: .8rem;
+	margin: 0;
+}
+
+.buyMeACoffee:hover {
+	transform: translateX(0px);
+}
+
 @media(max-width: 970px) {
 	.nicks {
 		flex-direction: column;

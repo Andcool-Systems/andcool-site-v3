@@ -11,7 +11,7 @@ import GithubIcon from '@/app/static/github.svg';
 import DiscordIcon from '@/app/static/discord.svg';
 import TelegramIcon from '@/app/static/telegram.svg';
 import ClockUpIcon from '@/app/static/clock_up.svg';
-import { IconBrandCloudflare, IconBrandCpp, IconBrandCss3, IconBrandDocker, IconBrandHtml5, IconBrandJavascript, IconBrandNextjs, IconBrandNodejs, IconBrandPrisma, IconBrandPython, IconBrandReact, IconBrandTypescript, IconCode, IconDeviceDesktop, IconServer } from "@tabler/icons-react";
+import { IconBrandCloudflare, IconBrandCpp, IconBrandCss3, IconBrandDocker, IconBrandHtml5, IconBrandJavascript, IconBrandNextjs, IconBrandNodejs, IconBrandPrisma, IconBrandPython, IconBrandReact, IconBrandTypescript, IconCode, IconCoffee, IconDeviceDesktop, IconServer } from "@tabler/icons-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -85,7 +85,13 @@ export default function Home(props: { birthday: boolean, timeServer: string, chr
 	}
 
 	return (
-		<main style={{ position: "relative", top: 0, right: 0, left: 0, bottom: 0 }}>
+		<main style={{ position: "relative", inset: 0, overflow: 'hidden' }}>
+			<a className={styles.buyMeACoffee}
+				href="https://www.donationalerts.com/r/andcool_systems"
+				target="_blank">
+				<IconCoffee />
+				<p>Buy me a coffee</p>
+			</a>
 			<header className={`${styles.header} ${(props.birthday || props.christmas) && styles.header_birthday}`}>
 				<div className={styles.animated}>
 					<div className={styles.nicks}>
