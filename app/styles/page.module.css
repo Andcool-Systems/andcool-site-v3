@@ -234,7 +234,7 @@
 }
 
 .buyMeACoffee {
-	position: absolute;
+	position: fixed;
 	z-index: 99;
 	top: .5rem;
 	right: 0;
