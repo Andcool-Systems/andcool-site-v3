@@ -108,9 +108,9 @@
 }
 
 .tech {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
 	gap: 2rem;
+	grid-template-columns: repeat(auto-fill, 5rem);
 
 }
 
@@ -298,5 +298,11 @@
 
 	.header_birthday {
 		padding-top: 7rem;
+	}
+}
+
+@media(max-width: 512px) {
+	.tech {
+		justify-content: center;
 	}
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Roboto_Mono } from "next/font/google";
 import "./styles/globals.css";
 
@@ -25,6 +25,11 @@ export const metadata: Metadata = {
 		'theme-color': '#0b5000'
 	}
 };
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 0.9
+}
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
 	return (
