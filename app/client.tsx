@@ -275,7 +275,7 @@ export default function Home(props: { birthday: boolean, timeServer: string, chr
 			</div>
 
 			<footer>
-				<p>AndcoolSystems, andcool, эндкул 2018–{props.year}</p>
+				<p>AndcóolSýstems, andcóol, эндку́л 2018–{props.year}</p>
 			</footer>
 		</main>
 	);
