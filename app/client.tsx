@@ -77,9 +77,8 @@ export default function Home(props: { birthday: boolean, timeServer: string, chr
 	const projects_el = projects.map(project => <Card key={project.id} project={project} />);
 
 	const scrollDown = () => {
-		const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 		window.scrollTo({
-			top: vh,
+			top: document.documentElement.clientHeight,
 			behavior: 'smooth'
 		});
 	}
