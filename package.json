@@ -11,19 +11,19 @@
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@tabler/icons": "^3.14.0",
-    "@tabler/icons-react": "^3.26.0",
-    "axios": "^1.6.8",
-    "next": "^14.2.18",
-    "react": "^18",
-    "react-dom": "^18"
+    "@tabler/icons": "^3.30.0",
+    "@tabler/icons-react": "^3.30.0",
+    "axios": "^1.7.9",
+    "next": "^15.1.7",
+    "react": "^19",
+    "react-dom": "^19"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
     "typescript": "^5"
   }
 }
