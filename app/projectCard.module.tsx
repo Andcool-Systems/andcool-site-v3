@@ -38,8 +38,10 @@ const Card = ({ project }: { project: ProjectProp }) => {
         </Link>
     ));
 
-    const tags = project.tags.map(tag => (
-        <span className={styles_pr.tag}>{tag}</span>
+    const tags = project.tags.map((tag, i) => (
+        <span className={styles_pr.tag} key={i}>
+            {tag}
+        </span>
     ));
 
     return (
