@@ -1,3 +1,5 @@
+import { ProjectProp } from './projectCard.module';
+
 /* eslint-disable @next/next/no-img-element */
 const fu = (
     <>
@@ -235,11 +237,12 @@ const json_stats_more = (
     </>
 );
 
-export const projects = [
+export const projects: ProjectProp[] = [
     {
         id: 'pplbandage',
         title: 'Повязки PepeLand',
         creation_date: '01.06.2023',
+        tags: ['Next.Js', 'Nest.Js', 'Prisma ORM'],
         icon: {
             url: '/static/ppl.png',
             color: '#a0a0a0'
@@ -261,6 +264,7 @@ export const projects = [
         id: 'fileuploader',
         title: 'File Uploader',
         creation_date: '18.12.2023',
+        tags: ['HTML', 'FastAPI', 'Prisma ORM'],
         icon: {
             url: '/static/fu.png',
             color: '#3E3E3E'
@@ -282,6 +286,7 @@ export const projects = [
         id: 'newAndcool',
         title: 'Новый личный сайт',
         creation_date: '02.09.2024',
+        tags: ['Next.Js'],
         icon: {
             url: '/static/andcool.jpg',
             color: '#0B5000'
@@ -302,6 +307,7 @@ export const projects = [
         id: 'mc-oauth',
         title: 'MC-OAuth',
         creation_date: '31.05.2024',
+        tags: ['Minecraft', 'Netty'],
         icon: {
             url: '/static/mc-oauth.png',
             color: '#009149'
@@ -331,6 +337,7 @@ export const projects = [
         id: 'json-stats',
         title: 'JSON Stats Widget',
         creation_date: '19.12.2024',
+        tags: ['Nest.Js', 'Widget'],
         icon: {
             url: '/static/json_stats.svg',
             color: '#1e1e1e'
@@ -352,6 +359,7 @@ export const projects = [
         id: 'weatherWidget',
         title: 'Weather Widget',
         creation_date: '20.08.2023',
+        tags: ['FastAPI', 'Widget'],
         icon: {
             url: '/static/weather.svg',
             color: '#4F5D73'
@@ -373,6 +381,7 @@ export const projects = [
         id: 'activityWidget',
         title: 'Activity Widget',
         creation_date: '25.08.2024',
+        tags: ['Nest.Js', 'Widget', 'VSCode'],
         icon: {
             url: '/static/activity.svg',
             color: '#4F5D73'
@@ -394,6 +403,7 @@ export const projects = [
         id: 'brainfuck',
         title: 'BrainFuck interpreter',
         creation_date: '14.08.2023',
+        tags: ['Interpreter', 'Programming language'],
         icon: {
             url: '/static/bf.png',
             color: '#3E3E3E'

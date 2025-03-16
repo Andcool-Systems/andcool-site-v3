@@ -1,16 +1,11 @@
 'use client';
 
 import styles from './styles/page.module.css';
-import styles_pr from './styles/projects.module.css';
+import styles_pr from '@/app/styles/projects.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { projects } from './data.tsx';
 import Card from './projectCard.module.tsx';
-import LinkIcon from '@/app/static/link.svg';
-import GithubIcon from '@/app/static/github.svg';
-import DiscordIcon from '@/app/static/discord.svg';
-import TelegramIcon from '@/app/static/telegram.svg';
-import ClockUpIcon from '@/app/static/clock_up.svg';
 
 import ExpressIcon from '@/app/static/express.svg';
 import NginxIcon from '@/app/static/nginx.svg';
@@ -21,7 +16,9 @@ import {
     IconBrandCloudflare,
     IconBrandCpp,
     IconBrandCss3,
+    IconBrandDiscord,
     IconBrandDocker,
+    IconBrandGithub,
     IconBrandHtml5,
     IconBrandJavascript,
     IconBrandNextjs,
@@ -29,14 +26,17 @@ import {
     IconBrandPrisma,
     IconBrandPython,
     IconBrandReact,
+    IconBrandTelegram,
     IconBrandTypescript,
     IconChevronDown,
+    IconClockUp,
     IconCloud,
     IconCloudRain,
     IconCloudStorm,
     IconCode,
     IconCoffee,
     IconDeviceDesktop,
+    IconExternalLink,
     IconMist,
     IconServer,
     IconSnowflake,
@@ -269,11 +269,11 @@ export default function Home(props: {
                             target="_blank"
                         >
                             <div className={styles.single}>
-                                <GithubIcon />
+                                <IconBrandGithub />
                                 <span>
                                     <b>GitHub</b>
                                 </span>
-                                <LinkIcon />
+                                <IconExternalLink />
                             </div>
                         </a>
                         <a
@@ -282,11 +282,11 @@ export default function Home(props: {
                             target="_blank"
                         >
                             <div className={styles.single}>
-                                <DiscordIcon />
+                                <IconBrandDiscord />
                                 <span>
                                     <b>Discord</b>
                                 </span>
-                                <LinkIcon />
+                                <IconExternalLink />
                             </div>
                         </a>
                         <a
@@ -295,11 +295,11 @@ export default function Home(props: {
                             target="_blank"
                         >
                             <div className={styles.single}>
-                                <TelegramIcon />
+                                <IconBrandTelegram />
                                 <span>
                                     <b>Telegram</b>
                                 </span>
-                                <LinkIcon />
+                                <IconExternalLink />
                             </div>
                         </a>
 
@@ -309,11 +309,11 @@ export default function Home(props: {
                             target="_blank"
                         >
                             <div className={styles.single}>
-                                <ClockUpIcon />
+                                <IconClockUp />
                                 <span>
                                     <b>Status page</b>
                                 </span>
-                                <LinkIcon />
+                                <IconExternalLink />
                             </div>
                         </a>
                     </div>
@@ -462,7 +462,7 @@ export default function Home(props: {
                         className={styles_pr.button}
                         style={{ borderWidth: '2px', justifyContent: 'center' }}
                     >
-                        <LinkIcon />
+                        <IconExternalLink />
                         <p style={{ fontFamily: 'inherit' }}>Больше проектов</p>
                     </div>
                 </Link>

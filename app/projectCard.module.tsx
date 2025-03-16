@@ -1,14 +1,15 @@
 import { JSX, useState } from 'react';
 import { Card3D } from './card3d';
 import styles_pr from './styles/projects.module.css';
-import LinkIcon from '@/app/static/link.svg';
 import Link from 'next/link';
 import Image from 'next/image';
+import { IconExternalLink } from '@tabler/icons-react';
 
-interface ProjectProp {
+export interface ProjectProp {
     id: string;
     title: string;
     creation_date: string;
+    tags: string[];
     icon: {
         url: string;
         color: string;
@@ -32,9 +33,13 @@ const Card = ({ project }: { project: ProjectProp }) => {
         >
             <div className={styles_pr.button}>
                 <p>{link.title}</p>
-                <LinkIcon />
+                <IconExternalLink />
             </div>
         </Link>
+    ));
+
+    const tags = project.tags.map(tag => (
+        <span className={styles_pr.tag}>{tag}</span>
     ));
 
     return (
@@ -58,6 +63,7 @@ const Card = ({ project }: { project: ProjectProp }) => {
                     <p style={{ margin: 0 }}>
                         Начало разработки: {project.creation_date}
                     </p>
+                    <div className={styles_pr.tags_cont}>{tags}</div>
                 </div>
             </div>
             <div className={styles_pr.body}>

@@ -102,6 +102,25 @@
     font-size: 1rem;
 }
 
+.tag {
+    position: relative;
+    z-index: 9999;
+    border: 1px #383737 solid;
+    padding: .375rem 1rem;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    box-sizing: border-box;
+    text-wrap: nowrap;
+}
+
+.tags_cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-top: .5rem;
+}
+
 @media(max-width: 970px) {
     .main {
         width: 90%;
@@ -122,5 +141,9 @@
 
     .name h1 {
         text-align: center;
+    }
+
+    .tags_cont {
+        justify-content: center;
     }
 }

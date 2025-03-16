@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from 'next';
 import { Roboto_Mono } from 'next/font/google';
 import './styles/globals.css';
 
-const Roboto = Roboto_Mono({ subsets: ['latin'] });
+const Roboto = Roboto_Mono({
+    subsets: ['latin'],
+    weight: ['400', '500', '600']
+});
 
 export const metadata: Metadata = {
     title: 'AndcoolSystems',
