@@ -273,20 +273,6 @@ export default function Home(props: {
                                 <span>
                                     <b>GitHub</b>
                                 </span>
-                                <IconExternalLink />
-                            </div>
-                        </a>
-                        <a
-                            href="https://discord.com/users/812990469482610729/"
-                            style={{ color: '#eeeeee', textDecoration: 'none' }}
-                            target="_blank"
-                        >
-                            <div className={styles.single}>
-                                <IconBrandDiscord />
-                                <span>
-                                    <b>Discord</b>
-                                </span>
-                                <IconExternalLink />
                             </div>
                         </a>
                         <a
@@ -299,21 +285,19 @@ export default function Home(props: {
                                 <span>
                                     <b>Telegram</b>
                                 </span>
-                                <IconExternalLink />
                             </div>
                         </a>
 
                         <a
-                            href="https://status.andcool.ru"
+                            href="https://tg.andcool.ru"
                             style={{ color: '#eeeeee', textDecoration: 'none' }}
                             target="_blank"
                         >
                             <div className={styles.single}>
-                                <IconClockUp />
+                                <IconBrandTelegram />
                                 <span>
-                                    <b>Status page</b>
+                                    <b>Channel</b>
                                 </span>
-                                <IconExternalLink />
                             </div>
                         </a>
                     </div>
@@ -459,7 +443,7 @@ export default function Home(props: {
                     style={{ textDecoration: 'none' }}
                 >
                     <div
-                        className={styles_pr.button}
+                        className={`${styles_pr.button} ${styles.single}`}
                         style={{ borderWidth: '2px', justifyContent: 'center' }}
                     >
                         <IconExternalLink />

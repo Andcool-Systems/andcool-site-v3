@@ -4,6 +4,7 @@ import styles_pr from './styles/projects.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconExternalLink } from '@tabler/icons-react';
+import styles_main from './styles/page.module.css';
 
 export interface ProjectProp {
     id: string;
@@ -31,7 +32,7 @@ const Card = ({ project }: { project: ProjectProp }) => {
             target="_blank"
             style={{ textDecoration: 'none' }}
         >
-            <div className={styles_pr.button}>
+            <div className={`${styles_pr.button} ${styles_main.single}`}>
                 <p>{link.title}</p>
                 <IconExternalLink />
             </div>
@@ -87,8 +88,8 @@ const Card = ({ project }: { project: ProjectProp }) => {
                         {expanded ? 'Скрыть' : 'Ещё...'}
                     </button>
                 )}
+                <div className={styles_pr.footer}>{links}</div>
             </div>
-            <div className={styles_pr.footer}>{links}</div>
         </div>
     );
 };

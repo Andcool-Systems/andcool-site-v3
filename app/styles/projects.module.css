@@ -13,7 +13,8 @@
     display: flex;
     align-items: center;
     padding: 2rem;
-    border: 2px #5B5959 solid;
+    background-color: var(--card-color);
+    border: 2px var(--border-color) solid;
     border-bottom: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -38,10 +39,12 @@
 
 
 .body {
-    border: 2px #5B5959 solid;
+    background-color: var(--card-color);
+    border: 2px var(--border-color) solid;
     text-align: left;
     padding: 1rem;
     overflow: hidden;
+    border-radius: 0 0 10px 10px;
 }
 
 .body h1 {
@@ -71,30 +74,15 @@
 }
 
 .footer {
-    border: 2px #5B5959 solid;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top: 0;
-    padding: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     gap: 0.7rem;
     flex-wrap: wrap;
 }
 
 .button {
-    display: flex;
-    padding: .6rem;
-    border: 1px #5B5959 solid;
-    border-radius: 8px;
-    align-items: stretch;
-    flex-direction: row;
-    color: #ffffff;
-    transition: background-color 0.15s ease-in-out;
-    gap: .5rem;
-}
-
-.button:hover {
-    background-color: #191b1f;
+    color: white;
+    background-color: var(--buttons-color);
 }
 
 .button p {
@@ -105,7 +93,8 @@
 .tag {
     position: relative;
     z-index: 9999;
-    border: 1px #383737 solid;
+    border: 2px var(--border-color) solid;
+    background-color: var(--card-color);
     padding: .375rem 1rem;
     border-radius: 9999px;
     font-size: 12px;

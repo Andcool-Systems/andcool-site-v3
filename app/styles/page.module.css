@@ -80,20 +80,19 @@
 
 .single {
 	cursor: pointer;
-	border: 2px #5b595957 solid;
-	border-radius: 10px;
+	border: 2px solid var(--border-color);
+	border-radius: .75rem;
 	display: flex;
 	align-items: center;
 	flex-direction: row;
-	padding: 0.6rem;
+	padding: .5rem 2rem;
 	background-color: none;
-	transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-	gap: 1rem;
+	transition: transform .8s;
+	gap: .75rem;
 }
 
 .single:hover {
-	background-color: #5b595927;
-	transform: translateY(-0.3rem) scale(1.05);
+	transform: scale(.97);
 }
 
 .main_tech {
@@ -223,10 +222,10 @@
 	align-items: center;
 	gap: .5rem;
 
-	background-color: #222329;
+	background-color: var(--buttons-color);
 	padding: .5rem;
 	border-radius: 8px 0 0 8px;
-	border: 1px #333845 solid;
+	border: 1px var(--border-color) solid;
 	border-right: none;
 	color: white;
 	cursor: pointer;
@@ -271,7 +270,7 @@
 	}
 
 	.single {
-		justify-content: space-between;
+		justify-content: center;
 	}
 
 	.header_birthday {

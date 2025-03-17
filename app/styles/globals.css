@@ -2,9 +2,18 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
-    background-color: #0E0F11;
+    background-color: var(--background-color);
     text-align: center;
     color: #eeeeee;
+
+    --background-color: #0a0a0a;
+    --card-color: #0b0b0b;
+    --border-color: #121212;
+    --text-color: #ffffff;
+    --headers-color: #a1a1a1;
+    --text-color-2: #d4d4d4;
+    --placeholder-color: #242424;
+    --buttons-color: #0d0d0d;
 }
 
 main {
