@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { IconExternalLink } from '@tabler/icons-react';
 import styles_main from './styles/page.module.css';
+import { zedMono } from './fonts/zed';
 
 export interface ProjectProp {
     id: string;
@@ -40,7 +41,7 @@ const Card = ({ project }: { project: ProjectProp }) => {
     ));
 
     const tags = project.tags.map((tag, i) => (
-        <span className={styles_pr.tag} key={i}>
+        <span className={`${styles_pr.tag} ${zedMono.className}`} key={i}>
             {tag}
         </span>
     ));

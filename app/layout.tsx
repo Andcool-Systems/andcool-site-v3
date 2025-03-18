@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
-import { Roboto_Mono } from 'next/font/google';
+import { Onest } from 'next/font/google';
 import './styles/globals.css';
 
-const Roboto = Roboto_Mono({
+const onest = Onest({
     subsets: ['latin'],
     weight: ['400', '500', '600']
 });
@@ -39,7 +39,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={Roboto.className}>{children}</body>
+            <body className={onest.className}>{children}</body>
         </html>
     );
 }

@@ -16,7 +16,6 @@ import {
     IconBrandCloudflare,
     IconBrandCpp,
     IconBrandCss3,
-    IconBrandDiscord,
     IconBrandDocker,
     IconBrandGithub,
     IconBrandHtml5,
@@ -29,7 +28,6 @@ import {
     IconBrandTelegram,
     IconBrandTypescript,
     IconChevronDown,
-    IconClockUp,
     IconCloud,
     IconCloudRain,
     IconCloudStorm,
@@ -44,6 +42,7 @@ import {
 } from '@tabler/icons-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { zedMono } from './fonts/zed/index.tsx';
 
 interface Weather {
     status: string;
@@ -222,6 +221,7 @@ export default function Home(props: {
                                         fontWeight: 500,
                                         height: '1.5rem'
                                     }}
+                                    className={zedMono.className}
                                 >
                                     {Math.round(weather.temp)}°C,
                                     {getWeatherIcon(weather.icon)}
@@ -239,7 +239,7 @@ export default function Home(props: {
                             <span title="7 Сентября 2007г.">
                                 {props.age} лет
                             </span>
-                            . Я Full Stack TypeScript && Python разработчик.
+                            . Я Full Stack TypeScript & Python разработчик.
                             <br />
                             Занимаюсь разработкой сайтов, а так же пишу Телеграм
                             ботов на заказ{' '}
@@ -248,16 +248,21 @@ export default function Home(props: {
                             </span>
                         </p>
                         <p style={{ marginTop: '1%' }}>
-                            <b>Часов в Wakatime:</b>{' '}
+                            <b>Wakatime:</b>{' '}
                             <a
                                 target="_blank"
                                 href="https://wakatime.com/@AndcoolSystems"
                                 style={{ color: '#eeeeee' }}
                                 id="waka"
-                            ></a>
+                                className={zedMono.className}
+                            />
                             <br />
-                            <b>Локальное время:</b> {time}{' '}
-                            <span style={{ color: 'grey', fontSize: '.9rem' }}>
+                            <b>Локальное время:</b>{' '}
+                            <span className={zedMono.className}>{time}</span>{' '}
+                            <span
+                                style={{ color: 'grey', fontSize: '.9rem' }}
+                                className={zedMono.className}
+                            >
                                 UTC+3
                             </span>
                         </p>
