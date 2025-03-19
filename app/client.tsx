@@ -183,14 +183,19 @@ export default function Home(props: {
                     <div className={styles.nicks}>
                         <div className={`${styles.card} card`}>
                             <div className={styles.card_inner}>
-                                <div className={styles.card_front}>
-                                    <Image
-                                        src="/static/andcool.jpg"
-                                        alt="Front Image"
-                                        width={460}
-                                        height={460}
-                                    />
-                                </div>
+                                <Image
+                                    src="/static/andcool.jpg"
+                                    alt="Avatar shadow"
+                                    className={styles.avatar_shadow}
+                                    width={460}
+                                    height={460}
+                                />
+                                <Image
+                                    src="/static/andcool.jpg"
+                                    alt="Avatar"
+                                    width={460}
+                                    height={460}
+                                />
                                 {props.birthday && (
                                     <Image
                                         src="/static/party-hat.png"
@@ -202,7 +207,7 @@ export default function Home(props: {
                                 )}
                                 {props.christmas && (
                                     <Image
-                                        src="./static/christmas-hat.png"
+                                        src="/static/christmas-hat.png"
                                         alt="christmas"
                                         className={styles.christmas_hat}
                                         width={360}
@@ -329,9 +334,13 @@ export default function Home(props: {
                         gap: '.3rem'
                     }}
                 >
-                    <IconDeviceDesktop
-                        style={{ filter: 'drop-shadow( 0px 0px 25px #149ECA)' }}
-                    />
+                    <div className={styles.stack_shadow_cont}>
+                        <div
+                            className={styles.stack_shadow}
+                            style={{ backgroundColor: '#149ECA' }}
+                        />
+                        <IconDeviceDesktop />
+                    </div>
                     Frontend
                 </h1>
                 <div className={styles.tech}>
@@ -369,9 +378,13 @@ export default function Home(props: {
                         gap: '.3rem'
                     }}
                 >
-                    <IconServer
-                        style={{ filter: 'drop-shadow( 0px 0px 25px #ea2845)' }}
-                    />
+                    <div className={styles.stack_shadow_cont}>
+                        <div
+                            className={styles.stack_shadow}
+                            style={{ backgroundColor: '#ea2845' }}
+                        />
+                        <IconServer />
+                    </div>
                     Backend
                 </h1>
                 <div className={styles.tech}>
@@ -413,9 +426,13 @@ export default function Home(props: {
                         gap: '.3rem'
                     }}
                 >
-                    <IconCode
-                        style={{ filter: 'drop-shadow( 0px 0px 25px #0B5000)' }}
-                    />
+                    <div className={styles.stack_shadow_cont}>
+                        <div
+                            className={styles.stack_shadow}
+                            style={{ backgroundColor: '#0B5000' }}
+                        />
+                        <IconCode />
+                    </div>
                     Остальной стек
                 </h1>
                 <div className={styles.tech}>
