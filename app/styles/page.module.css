@@ -86,7 +86,7 @@
 	align-items: center;
 	flex-direction: row;
 	padding: .5rem 2rem;
-	background-color: none;
+	background-color: var(--buttons-color);
 	transition: transform .8s;
 	gap: .75rem;
 }
