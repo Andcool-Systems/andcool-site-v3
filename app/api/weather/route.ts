@@ -5,7 +5,7 @@ const capitalize = (str: string) =>
 
 export async function GET(_: NextRequest) {
     const response = await fetch(
-        `${process.env.WEATHER_PATH}/data/2.5/weather` +
+        `https://api.openweathermap.org/data/2.5/weather` +
             `?lat=${process.env.WEATHER_LAT}` +
             `&lon=${process.env.WEATHER_LON}` +
             `&appid=${process.env.WEATHER_TOKEN}` +
