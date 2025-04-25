@@ -128,13 +128,11 @@ export default function Home(props: {
             set_time(getTime());
         }, 1000);
 
-        axios
-            .get('https://weather.andcool.ru/api?place=andcool&json=true')
-            .then(response => {
-                if (response.status === 200) {
-                    setWeather(response.data as Weather);
-                }
-            });
+        axios.get('/api/weather').then(response => {
+            if (response.status === 200) {
+                setWeather(response.data as Weather);
+            }
+        });
 
         window.onscroll = () => {
             const client_height = document.documentElement.clientHeight / 2;
