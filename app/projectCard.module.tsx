@@ -1,4 +1,4 @@
-import { JSX, useState } from 'react';
+import { CSSProperties, JSX, useState } from 'react';
 import { Card3D } from './card3d';
 import styles_pr from './styles/projects.module.css';
 import Link from 'next/link';
@@ -24,6 +24,12 @@ export interface ProjectProp {
     }[];
 }
 
+const ppl_bandage_styles: CSSProperties = {
+    background: 'url(/static/background_amoled.svg)',
+    backgroundSize: '150px',
+    backgroundRepeat: 'repeat'
+};
+
 const Card = ({ project }: { project: ProjectProp }) => {
     const [expanded, setExpanded] = useState<boolean>(false);
     const links = project.links.map(link => (
@@ -47,8 +53,11 @@ const Card = ({ project }: { project: ProjectProp }) => {
     ));
 
     return (
-        <div className={styles_pr.child} id={project.id}>
-            <div className={styles_pr.head}>
+        <article className={styles_pr.child} id={project.id}>
+            <div
+                className={styles_pr.head}
+                style={project.id === 'pplbandage' ? ppl_bandage_styles : {}}
+            >
                 <Card3D>
                     <Image
                         style={{
@@ -91,7 +100,7 @@ const Card = ({ project }: { project: ProjectProp }) => {
                 )}
                 <div className={styles_pr.footer}>{links}</div>
             </div>
-        </div>
+        </article>
     );
 };
 
