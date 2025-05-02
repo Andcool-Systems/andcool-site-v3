@@ -453,7 +453,7 @@ export default function Home(props: {
                 </div>
             </div>
             <h1>
-                Последние <span className={styles.projects_txt}>проекты</span>
+                <span className={styles.projects_txt}>Лучшие</span> проекты
             </h1>
             <div className={styles_pr.main}>
                 {projects_el}

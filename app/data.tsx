@@ -169,15 +169,9 @@ const oauth_more = (
     <>
         Проект разрабатывался как замена сервису mc-oauth.com, так как на момент
         создания он был отключён.
-        <br />
-        <br />
-        Вначале был создан серверный плагин на версию 1.20. При входе на сервер
-        плагин генерировал 6-значный код, с которым ассоциировал никнейм и uuid
-        зашедшего игрока. Однако сервер Minecraft тратил слишком много ресурсов
-        сервера впустую. В связи с этим было принято решение разработать сервер
-        с нуля, имеющий только поток авторизации для клиентов. Разработка нового
-        сервера авторизации значительно снизила нагрузку на хост и позволила
-        использовать его в реальных целях.
+        <br />С момента создания он претерпел множество изменений. В конечном
+        итоге, последняя версия работает на языке программирования Rust и
+        используется в проекте PPLBandage.
     </>
 );
 
@@ -209,7 +203,7 @@ const activity_more = (
         Рабочий пример: <br />
         <img
             style={{ maxWidth: '100%' }}
-            src="https://activity.andcool.ru/t9mdtk/widget"
+            src="https://activity.andcool.ru/ld0jjb/widget"
             alt="Activity widget"
         />
     </>
@@ -234,6 +228,68 @@ const json_stats_more = (
             src="https://json-stats.andcool.ru"
             alt="Json stats widget"
         />
+    </>
+);
+
+const pepsi = (
+    <>
+        Сайт-визитка для приватного дискорд сообщества программистов ❤.
+        Создавался как proof-of-concept верстки сайта без точных референсов.
+    </>
+);
+
+const css_linter = (
+    <>Универсальный линтер CSS модулей для Next.Js, написанный на расте.</>
+);
+
+const css_linter_more = (
+    <>
+        Так как VSCode не имеет встроенного линтера для CSS модулей я разработал
+        свой плагин с ядром на Rust.
+        <br />
+        <br />
+        Сейчас из функционала линтера он умеет определять неиспользуемые CSS
+        классы из модулей и подчеркивать их, а также определять использование
+        необъявленных CSS классов внутри tsx файлов.
+        <br />
+        Из функционала <b>QoL</b>, реализованы: автокомплит для имен классов в
+        CSS модуле, поиск дефинишенов для классов и модулей, отображение
+        содержимого класса при наведении на его имя в tsx файле, а также
+        извлечение inline-стилей в отдельный CSS модуль.
+    </>
+);
+
+const next_cookies = (
+    <>
+        TypeScript пакет для Next.Js, позволяющий получать Cookie-файлы на
+        стороне клиента до полной гидрации React приложения.
+    </>
+);
+
+const next_cookies_more = (
+    <>
+        Cookie-файлы получаются на стороне сервере, а затем прокидываются до
+        клиента. Таким образом, разработчики могут легко реализовывать темы,
+        языки или иные настройки сайта без нужды заботиться о состоянии
+        компонентов до гидрации.
+        <br />
+        <br />
+        Этот пакет активно используется на большинстве моих Next.Js проектов.
+    </>
+);
+
+const html8 = (
+    <>
+        Proof-of-concept компилируемого, статически строго типизируемого языка
+        программирования с синтаксисом HTML.
+    </>
+);
+const html8_more = (
+    <>
+        Проект создавался ради шутки, однако сейчас имеет более 2-х тысяч строк
+        кода. Написанный на Rust и компилируемый в СИ, он послужил отличной
+        практикой в написании фронтендов языков, а так же в более глубоком
+        понимании их работы.
     </>
 );
 
@@ -264,6 +320,7 @@ export const projects: ProjectProp[] = [
         id: 'fileuploader',
         title: 'File Uploader',
         creation_date: '18.12.2023',
+        end_of_support: '29.04.2025',
         tags: ['HTML', 'FastAPI', 'Prisma ORM'],
         icon: {
             url: '/static/fu.png',
@@ -273,33 +330,8 @@ export const projects: ProjectProp[] = [
         full_description: fu_more,
         links: [
             {
-                title: 'Сайт',
-                url: 'https://fu.andcool.ru'
-            },
-            {
                 title: 'Исходный код',
                 url: 'https://github.com/Andcool-Systems/File-uploader'
-            }
-        ]
-    },
-    {
-        id: 'newAndcool',
-        title: 'Новый личный сайт',
-        creation_date: '02.09.2024',
-        tags: ['Next.Js'],
-        icon: {
-            url: '/static/andcool.jpg',
-            color: '#0B5000'
-        },
-        short_description: newAndcool,
-        links: [
-            {
-                title: 'Сайт',
-                url: 'https://new.andcool.ru'
-            },
-            {
-                title: 'Исходный код',
-                url: 'https://github.com/Andcool-Systems/andcool-site-v4'
             }
         ]
     },
@@ -307,7 +339,7 @@ export const projects: ProjectProp[] = [
         id: 'mc-oauth',
         title: 'MC-OAuth',
         creation_date: '31.05.2024',
-        tags: ['Minecraft', 'Netty'],
+        tags: ['Rust', 'Minecraft'],
         icon: {
             url: '/static/mc-oauth.png',
             color: '#009149'
@@ -321,15 +353,108 @@ export const projects: ProjectProp[] = [
             },
             {
                 title: 'Исходный код сервера',
-                url: 'https://github.com/Andcool-Systems/mc-oauth'
+                url: 'https://github.com/Andcool-Systems/mc-oauth-rs'
+            }
+        ]
+    },
+    {
+        id: 'next-cookies',
+        title: 'use-next-cookie',
+        creation_date: '31.05.2024',
+        tags: ['TypeScript', 'Next.Js', 'Package'],
+        icon: {
+            url: '/static/placeholder.png',
+            color: '#1f1f1f'
+        },
+        short_description: next_cookies,
+        full_description: next_cookies_more,
+        links: [
+            {
+                title: 'npm',
+                url: 'https://www.npmjs.com/package/use-next-cookie'
             },
             {
-                title: 'Исходный код плагина',
-                url: 'https://github.com/Andcool-Systems/mc-oauth-plugin'
+                title: 'Исходный код',
+                url: 'https://github.com/Andcool-Systems/use-next-cookie'
+            }
+        ]
+    },
+    {
+        id: 'pepsi',
+        title: 'PEPSI Site',
+        creation_date: '10.02.2025',
+        tags: ['Next.Js'],
+        icon: {
+            url: '/static/pepsi.png',
+            color: '#080e13'
+        },
+        short_description: pepsi,
+        links: [
+            {
+                title: 'Сайт',
+                url: 'https://pepsi.andcool.ru'
             },
             {
-                title: 'Страница на Modrinth',
-                url: 'https://modrinth.com/plugin/mc-oauth'
+                title: 'Исходный код',
+                url: 'https://github.com/PepsiCommunity/pepsi-site'
+            }
+        ]
+    },
+    {
+        id: 'css-linter',
+        title: 'Next CSS Linter',
+        creation_date: '03.03.2025',
+        tags: ['Liner', 'Rust', 'Next.Js'],
+        icon: {
+            url: '/static/linter.png',
+            color: '#1e1e1e'
+        },
+        short_description: css_linter,
+        full_description: css_linter_more,
+        links: [
+            {
+                title: 'VSCode Marketplace',
+                url: 'https://marketplace.visualstudio.com/items?itemName=AndcoolSystems.next-css-lint'
+            },
+            {
+                title: 'Исходный код',
+                url: 'https://github.com/Andcool-Systems/css-linter'
+            }
+        ]
+    },
+    {
+        id: 'newAndcool',
+        title: 'Новый личный сайт',
+        creation_date: '02.09.2024',
+        end_of_support: '09.03.2025',
+        tags: ['Next.Js'],
+        icon: {
+            url: '/static/placeholder.png',
+            color: '#1f1f1f'
+        },
+        short_description: newAndcool,
+        links: [
+            {
+                title: 'Исходный код',
+                url: 'https://github.com/Andcool-Systems/andcool-site-v4'
+            }
+        ]
+    },
+    {
+        id: 'html8',
+        title: 'HTML-8',
+        creation_date: '14.03.2025',
+        tags: ['Proof-of-concept', 'Language', 'Compiler', 'Rust'],
+        icon: {
+            url: '/static/placeholder.png',
+            color: '#1f1f1f'
+        },
+        short_description: html8,
+        full_description: html8_more,
+        links: [
+            {
+                title: 'Исходный код',
+                url: 'https://github.com/PepsiCommunity/html8'
             }
         ]
     },
@@ -359,6 +484,7 @@ export const projects: ProjectProp[] = [
         id: 'weatherWidget',
         title: 'Weather Widget',
         creation_date: '20.08.2023',
+        end_of_support: '25.05.2025',
         tags: ['FastAPI', 'Widget'],
         icon: {
             url: '/static/weather.svg',
@@ -367,10 +493,6 @@ export const projects: ProjectProp[] = [
         short_description: weather,
         full_description: weather_more,
         links: [
-            {
-                title: 'Сайт',
-                url: 'https://weather.andcool.ru'
-            },
             {
                 title: 'Исходный код',
                 url: 'https://github.com/Andcool-Systems/weather-widget-api'

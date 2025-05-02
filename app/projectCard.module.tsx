@@ -11,6 +11,7 @@ export interface ProjectProp {
     id: string;
     title: string;
     creation_date: string;
+    end_of_support?: string;
     tags: string[];
     icon: {
         url: string;
@@ -76,6 +77,11 @@ const Card = ({ project }: { project: ProjectProp }) => {
                     <p style={{ margin: 0 }}>
                         Начало разработки: {project.creation_date}
                     </p>
+                    {project.end_of_support && (
+                        <p style={{ margin: 0 }}>
+                            Конец поддержки: {project.end_of_support}
+                        </p>
+                    )}
                     <div className={styles_pr.tags_cont}>{tags}</div>
                 </div>
             </div>
