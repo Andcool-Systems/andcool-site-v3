@@ -360,7 +360,7 @@ export const projects: ProjectProp[] = [
     {
         id: 'next-cookies',
         title: 'use-next-cookie',
-        creation_date: '31.05.2024',
+        creation_date: '28.02.2025',
         tags: ['TypeScript', 'Next.Js', 'Package'],
         icon: {
             url: '/static/placeholder.png',
