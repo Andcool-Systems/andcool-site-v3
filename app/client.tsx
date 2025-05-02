@@ -25,6 +25,7 @@ import {
     IconBrandPrisma,
     IconBrandPython,
     IconBrandReact,
+    IconBrandRust,
     IconBrandTelegram,
     IconBrandTypescript,
     IconChevronDown,
@@ -343,12 +344,12 @@ export default function Home(props: {
                 </h1>
                 <div className={styles.tech}>
                     <div>
-                        <IconBrandReact {...techIconProps} />
-                        <span>ReactJs</span>
-                    </div>
-                    <div>
                         <IconBrandNextjs {...techIconProps} />
                         <span>NextJs</span>
+                    </div>
+                    <div>
+                        <IconBrandReact {...techIconProps} />
+                        <span>ReactJs</span>
                     </div>
                     <div>
                         <IconBrandTypescript {...techIconProps} />
@@ -391,10 +392,6 @@ export default function Home(props: {
                         <span>NestJs</span>
                     </div>
                     <div>
-                        <IconBrandNodejs {...techIconProps} />
-                        <span>NodeJs</span>
-                    </div>
-                    <div>
                         <ExpressIcon {...techIconProps} />
                         <span>Express.js</span>
                     </div>
@@ -407,12 +404,12 @@ export default function Home(props: {
                         <span>Nginx</span>
                     </div>
                     <div>
-                        <IconBrandPython {...techIconProps} />
-                        <span>Python 3</span>
+                        <IconBrandRust {...techIconProps} />
+                        <span>Rust</span>
                     </div>
                     <div>
-                        <FastApiIcon {...techIconProps} />
-                        <span>FastAPI</span>
+                        <IconBrandDocker {...techIconProps} />
+                        <span>Docker</span>
                     </div>
                 </div>
                 <h1
@@ -435,16 +432,20 @@ export default function Home(props: {
                 </h1>
                 <div className={styles.tech}>
                     <div>
+                        <IconBrandNodejs {...techIconProps} />
+                        <span>NodeJs</span>
+                    </div>
+                    <div>
+                        <IconBrandPython {...techIconProps} />
+                        <span>Python</span>
+                    </div>
+                    <div>
                         <IconBrandCpp {...techIconProps} />
                         <span>C++</span>
                     </div>
                     <div>
                         <JavaIcon {...techIconProps} />
                         <span>Java</span>
-                    </div>
-                    <div>
-                        <IconBrandDocker {...techIconProps} />
-                        <span>Docker</span>
                     </div>
                     <div>
                         <IconBrandCloudflare {...techIconProps} />
