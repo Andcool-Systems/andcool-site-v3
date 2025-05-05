@@ -467,8 +467,8 @@ export default function Home(props: {
                         className={`${styles_pr.button} ${styles.single}`}
                         style={{ borderWidth: '2px', justifyContent: 'center' }}
                     >
-                        <IconExternalLink />
                         <p style={{ fontFamily: 'inherit' }}>Больше проектов</p>
+                        <IconExternalLink />
                     </div>
                 </Link>
             </div>
