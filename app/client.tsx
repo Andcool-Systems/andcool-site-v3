@@ -5,7 +5,7 @@ import styles_pr from '@/app/styles/projects.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { projects } from './data.tsx';
-import Card from './projectCard.module.tsx';
+import Card from './components/projectCard.module.tsx';
 
 import ExpressIcon from '@/app/static/express.svg';
 import NginxIcon from '@/app/static/nginx.svg';
@@ -44,6 +44,7 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import { zedMono } from './fonts/zed/index.tsx';
+import { StaticTooltip } from './components/Tooltip.tsx';
 
 interface Weather {
     status: string;
@@ -240,9 +241,11 @@ export default function Home(props: {
                         <h2>Привет👋</h2>
                         <p style={{ marginTop: '3px' }}>
                             Меня зовут Андрей, мне{' '}
-                            <span title="7 Сентября 2007г.">
-                                {props.age} лет
-                            </span>
+                            <StaticTooltip title="7 Сентября 2007г.">
+                                <span style={{ cursor: 'pointer' }}>
+                                    {props.age} лет
+                                </span>
+                            </StaticTooltip>
                             . Я Full Stack TypeScript & Python разработчик.
                             <br />
                             Занимаюсь разработкой сайтов, а так же пишу Телеграм

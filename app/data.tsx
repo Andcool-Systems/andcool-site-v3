@@ -1,4 +1,4 @@
-import { ProjectProp } from './projectCard.module';
+import { ProjectProp } from './components/projectCard.module';
 
 /* eslint-disable @next/next/no-img-element */
 const fu = (

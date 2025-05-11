@@ -1,11 +1,11 @@
 import { CSSProperties, JSX, useState } from 'react';
 import { Card3D } from './card3d';
-import styles_pr from './styles/projects.module.css';
+import styles_pr from '@/app/styles/projects.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconExternalLink } from '@tabler/icons-react';
-import styles_main from './styles/page.module.css';
-import { zedMono } from './fonts/zed';
+import styles_main from '@/app/styles/page.module.css';
+import { zedMono } from '../fonts/zed';
 
 export interface ProjectProp {
     id: string;
