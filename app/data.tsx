@@ -404,7 +404,7 @@ export const projects: ProjectProp[] = [
         id: 'css-linter',
         title: 'Next CSS Linter',
         creation_date: '03.03.2025',
-        tags: ['Liner', 'Rust', 'Next.Js'],
+        tags: ['Linter', 'Rust', 'Next.Js'],
         icon: {
             url: '/static/linter.png',
             color: '#1e1e1e'
