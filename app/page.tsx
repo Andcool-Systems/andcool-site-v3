@@ -8,7 +8,7 @@ const getTime = (): string => {
         hour12: false,
         timeZone: 'Etc/GMT-3'
     });
-}
+};
 
 const fullYearsDifference = (date1: Date, date2: Date) => {
     const year1 = date1.getFullYear();
@@ -17,14 +17,14 @@ const fullYearsDifference = (date1: Date, date2: Date) => {
 
     if (
         date2.getMonth() < date1.getMonth() ||
-        (date2.getMonth() === date1.getMonth() && date2.getDate() < date1.getDate())
+        (date2.getMonth() === date1.getMonth() &&
+            date2.getDate() < date1.getDate())
     ) {
         diff--;
     }
 
     return diff;
-}
-
+};
 
 const Home = async () => {
     const date = new Date();
@@ -32,10 +32,14 @@ const Home = async () => {
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const birthday = day === 7 && month === 9;
-    const christmas = (day === 31 && month === 12) || (day === 1 && month === 1);
+    const christmas =
+        (day === 31 && month === 12) || (day === 1 && month === 1);
     const age = fullYearsDifference(new Date('2007-09-07'), date);
 
-    const year = new Intl.DateTimeFormat('en-US', { timeZone: 'Etc/GMT-3', year: 'numeric' }).format(date);
+    const year = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Etc/GMT-3',
+        year: 'numeric'
+    }).format(date);
     return (
         <ClientHome
             birthday={birthday}
@@ -44,8 +48,8 @@ const Home = async () => {
             year={year}
             age={age}
         />
-    )
-}
+    );
+};
 
 export default Home;
 export const dynamic = 'force-dynamic';

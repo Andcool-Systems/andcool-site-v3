@@ -2,14 +2,12 @@
 
 import styles from './styles/page.module.css';
 import styles_pr from '@/app/styles/projects.module.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { projects } from './data.tsx';
 import Card from './components/projectCard.module.tsx';
 
 import ExpressIcon from '@/app/static/express.svg';
 import NginxIcon from '@/app/static/nginx.svg';
-import FastApiIcon from '@/app/static/fastapi.svg';
 import JavaIcon from '@/app/static/java.svg';
 import NestIcon from '@/app/static/nest.svg';
 import {
@@ -29,65 +27,24 @@ import {
     IconBrandTelegram,
     IconBrandTypescript,
     IconChevronDown,
-    IconCloud,
-    IconCloudRain,
-    IconCloudStorm,
     IconCode,
-    IconCoffee,
     IconDeviceDesktop,
     IconExternalLink,
-    IconMist,
-    IconServer,
-    IconSnowflake,
-    IconSun
+    IconServer
 } from '@tabler/icons-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { zedMono } from './fonts/zed/index.tsx';
 import { StaticTooltip } from './components/Tooltip.tsx';
-
-interface Weather {
-    status: string;
-    message: string;
-    temp: number;
-    condition: string;
-    icon: string;
-}
-
-const getTime = (): string => {
-    return new Date().toLocaleString('ru-RU', {
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        hour12: false,
-        timeZone: 'Etc/GMT-3'
-    });
-};
+import BuyMeCoffee from './components/BuyMeCoffee.tsx';
+import Activity from './components/Activity.tsx';
+import Wakatime from './components/Wakatime.tsx';
+import CurrentTime from './components/CurrentTime.tsx';
+import Weather from './components/Weather.tsx';
 
 const techIconProps = {
     width: 64,
     height: 64,
     strokeWidth: 1.5
-};
-
-const getWeatherIcon = (id: string) => {
-    switch (id) {
-        case '02':
-        case '03':
-        case '04':
-            return <IconCloud />;
-        case '09':
-        case '10':
-            return <IconCloudRain />;
-        case '11':
-            return <IconCloudStorm />;
-        case '13':
-            return <IconSnowflake />;
-        case '50':
-            return <IconMist />;
-        default:
-            return <IconSun />;
-    }
 };
 
 export default function Home(props: {
@@ -97,44 +54,12 @@ export default function Home(props: {
     year: string;
     age: number;
 }) {
-    const [time, set_time] = useState(props.timeServer);
-    const [weather, setWeather] = useState<Weather>(null);
-
     useEffect(() => {
         window.onbeforeunload = () => {
             if (!window.location.hash) {
                 window.scrollTo(0, 0);
             }
         };
-
-        axios
-            .get(
-                'https://wakatime.com/share/@AndcoolSystems/c20041f4-a965-47c3-ac36-7234e622a980.json'
-            )
-            .then(response => {
-                const wakatime =
-                    response.data.data.grand_total
-                        .human_readable_total_including_other_language;
-                const add_waka = () => {
-                    const waka = document.getElementById(
-                        'waka'
-                    ) as HTMLAnchorElement;
-                    if (waka.innerHTML.length < wakatime.length)
-                        waka.innerHTML += wakatime[waka.innerHTML.length];
-                };
-                setInterval(add_waka, 45);
-            });
-
-        set_time(getTime());
-        setInterval(() => {
-            set_time(getTime());
-        }, 1000);
-
-        axios.get('/api/weather').then(response => {
-            if (response.status === 200) {
-                setWeather(response.data as Weather);
-            }
-        });
 
         window.onscroll = () => {
             const client_height = document.documentElement.clientHeight / 2;
@@ -165,14 +90,8 @@ export default function Home(props: {
 
     return (
         <main style={{ position: 'relative', inset: 0, overflow: 'hidden' }}>
-            <a
-                className={styles.buyMeACoffee}
-                href="https://www.donationalerts.com/r/andcool_systems"
-                target="_blank"
-            >
-                <IconCoffee />
-                <p>Buy me a coffee</p>
-            </a>
+            <BuyMeCoffee />
+            {/*<Activity />*/}
             <header
                 className={`${styles.header} ${
                     (props.birthday || props.christmas) &&
@@ -218,23 +137,7 @@ export default function Home(props: {
                         </div>
                         <div className={styles.name_cont}>
                             <h1 className={styles.name}>AndcoolSystems</h1>
-                            {weather ? (
-                                <p
-                                    style={{
-                                        margin: 0,
-                                        color: 'gray',
-                                        fontWeight: 500,
-                                        height: '1.5rem'
-                                    }}
-                                    className={zedMono.className}
-                                >
-                                    {Math.round(weather.temp)}°C,
-                                    {getWeatherIcon(weather.icon)}
-                                    {weather.condition}
-                                </p>
-                            ) : (
-                                <span style={{ height: '1.5rem' }}></span>
-                            )}
+                            <Weather />
                         </div>
                     </div>
                     <div className={styles.hello}>
@@ -255,23 +158,9 @@ export default function Home(props: {
                             </span>
                         </p>
                         <p style={{ marginTop: '1%' }}>
-                            <b>Wakatime:</b>{' '}
-                            <a
-                                target="_blank"
-                                href="https://wakatime.com/@AndcoolSystems"
-                                style={{ color: '#eeeeee' }}
-                                id="waka"
-                                className={zedMono.className}
-                            />
+                            <Wakatime />
                             <br />
-                            <b>Локальное время:</b>{' '}
-                            <span className={zedMono.className}>{time}</span>{' '}
-                            <span
-                                style={{ color: 'grey', fontSize: '.9rem' }}
-                                className={zedMono.className}
-                            >
-                                UTC+3
-                            </span>
+                            <CurrentTime initial={props.timeServer} />
                         </p>
                     </div>
                     <div className={styles.social}>
