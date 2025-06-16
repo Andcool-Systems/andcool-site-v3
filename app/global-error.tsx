@@ -10,8 +10,7 @@ export default function GlobalError({
     return (
         <html>
             <body>
-                <h2>Something went wrong!</h2>
-                <button onClick={() => reset()}>Try again</button>
+                <h2>Client error: {error.message ?? 'Unknown error'}</h2>
             </body>
         </html>
     );
