@@ -177,7 +177,7 @@ export default function Home(props: {
                             </div>
                         </a>
                         <a
-                            href="https://t.me/andcool_systems"
+                            href="/tg"
                             style={{ color: '#eeeeee', textDecoration: 'none' }}
                             target="_blank"
                         >
@@ -190,7 +190,7 @@ export default function Home(props: {
                         </a>
 
                         <a
-                            href="https://tg.andcool.ru"
+                            href="/tgc"
                             style={{ color: '#eeeeee', textDecoration: 'none' }}
                             target="_blank"
                         >
