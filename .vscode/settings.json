@@ -1,5 +1,8 @@
 {
     "liveServer.settings.port": 5501,
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "cSpell.words": [
+        "perlin"
+    ]
 }

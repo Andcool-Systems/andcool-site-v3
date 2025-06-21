@@ -17,6 +17,7 @@
     "jsx": "preserve",
     "incremental": true,
     "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
     "strictNullChecks": false,
     "plugins": [
       {
