@@ -51,7 +51,9 @@ const Bubble = ({ fill }: { fill: string }) => {
         };
     }, []);
 
-    return <path ref={svgRef} fill={fill} style={{ mixBlendMode: 'color' }} />;
+    return (
+        <path ref={svgRef} fill={fill} style={{ mixBlendMode: 'lighten' }} />
+    );
 };
 
 const Test = () => {
