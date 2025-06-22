@@ -51,9 +51,7 @@ const Bubble = ({ fill }: { fill: string }) => {
         };
     }, []);
 
-    return (
-        <path ref={svgRef} fill={fill} style={{ mixBlendMode: 'lighten' }} />
-    );
+    return <path ref={svgRef} fill={fill} style={{ mixBlendMode: 'screen' }} />;
 };
 
 const Test = () => {
@@ -66,7 +64,7 @@ const Test = () => {
                 position: 'absolute',
                 left: 0,
                 top: 0,
-                filter: 'blur(10px)'
+                filter: 'blur(10px) invert(.96)'
             }}
         >
             <Bubble fill={'#ff0000'} />
