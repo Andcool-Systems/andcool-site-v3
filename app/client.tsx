@@ -135,7 +135,7 @@ export default function Home(props: {
                                             '#0000ff'
                                         ]}
                                         styles={{
-                                            width: 'calc(100% + 35x)',
+                                            width: 'calc(100% + 35px)',
                                             position: 'absolute'
                                         }}
                                         width={300}
