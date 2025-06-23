@@ -40,6 +40,7 @@ import Activity from './components/Activity.tsx';
 import Wakatime from './components/Wakatime.tsx';
 import CurrentTime from './components/CurrentTime.tsx';
 import Weather from './components/Weather.tsx';
+import { Bubble } from './components/Bubble.tsx';
 
 const techIconProps = {
     width: 64,
@@ -102,37 +103,45 @@ export default function Home(props: {
                     <div className={styles.nicks}>
                         <div className={`${styles.card} card`}>
                             <div className={styles.card_inner}>
-                                <Image
-                                    src="/static/andcool.jpg"
-                                    alt="Avatar shadow"
-                                    className={styles.avatar_shadow}
-                                    width={460}
-                                    height={460}
-                                />
-                                <Image
-                                    src="/static/andcool.jpg"
-                                    alt="Avatar"
-                                    width={460}
-                                    height={460}
-                                />
-                                {props.birthday && (
+                                <div className={styles.avatar_bubble}>
                                     <Image
-                                        src="/static/party-hat.png"
-                                        alt="party hat"
-                                        className={styles.party_hat}
-                                        width={512}
-                                        height={512}
+                                        src="/static/andcool.jpg"
+                                        alt="Avatar"
+                                        width={460}
+                                        height={460}
                                     />
-                                )}
-                                {props.christmas && (
-                                    <Image
-                                        src="/static/christmas-hat.png"
-                                        alt="christmas"
-                                        className={styles.christmas_hat}
-                                        width={360}
-                                        height={360}
+                                    {props.birthday && (
+                                        <Image
+                                            src="/static/party-hat.png"
+                                            alt="party hat"
+                                            className={styles.party_hat}
+                                            width={512}
+                                            height={512}
+                                        />
+                                    )}
+                                    {props.christmas && (
+                                        <Image
+                                            src="/static/christmas-hat.png"
+                                            alt="christmas"
+                                            className={styles.christmas_hat}
+                                            width={360}
+                                            height={360}
+                                        />
+                                    )}
+                                    <Bubble
+                                        colors={[
+                                            '#ff0000',
+                                            '#00ff00',
+                                            '#0000ff'
+                                        ]}
+                                        styles={{
+                                            width: 'calc(100% + 30px)',
+                                            position: 'absolute'
+                                        }}
+                                        width={500}
+                                        height={500}
                                     />
-                                )}
+                                </div>
                             </div>
                         </div>
                         <div className={styles.name_cont}>

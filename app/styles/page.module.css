@@ -148,13 +148,10 @@
 }
 
 
-.avatar_shadow {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: -1;
-
-	filter: blur(70px);
+.avatar_bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .card {
@@ -189,19 +186,19 @@
 }
 
 .party_hat {
-	position: relative;
+	position: absolute;
 	border-radius: 0 !important;
 	width: 9rem !important;
 	top: -6.3rem;
-	right: -3.6rem;
+	right: -.7rem;
 }
 
 .christmas_hat {
-	position: relative;
+	position: absolute;
 	border-radius: 0 !important;
 	width: 9rem !important;
 	top: -5.3rem;
-	right: 4.4rem;
+	right: 7.4rem;
 
 	transform: scale(-1.4, 1.4) rotate(4deg);
 }
