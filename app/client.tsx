@@ -135,11 +135,11 @@ export default function Home(props: {
                                             '#0000ff'
                                         ]}
                                         styles={{
-                                            width: 'calc(100% + 30px)',
+                                            width: 'calc(100% + 35x)',
                                             position: 'absolute'
                                         }}
-                                        width={500}
-                                        height={500}
+                                        width={300}
+                                        height={300}
                                     />
                                 </div>
                             </div>

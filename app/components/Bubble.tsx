@@ -3,7 +3,7 @@
 import { CSSProperties, useEffect, useRef } from 'react';
 import { createNoise3D, NoiseFunction3D } from 'simplex-noise';
 
-const raysCount = 100;
+const raysCount = 50;
 const full_circle = Math.PI * 2;
 const scale = 0.8;
 
