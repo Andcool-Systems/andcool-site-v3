@@ -349,7 +349,9 @@ export default function Home(props: {
                         <span>Java</span>
                     </div>
                     <div>
-                        <IconBrandCloudflare {...techIconProps} />
+                        <StaticTooltip title="Помянем">
+                            <IconBrandCloudflare {...techIconProps} />
+                        </StaticTooltip>
                         <span>CloudFlare</span>
                     </div>
                 </div>

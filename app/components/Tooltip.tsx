@@ -5,7 +5,7 @@ import Style from '@/app/styles/tooltip.module.css';
 import ReactCSSTransition from './CSSTransition';
 
 type StaticTooltipProps = {
-    children: JSX.Element;
+    children: JSX.Element | JSX.Element[];
     title: string;
 };
 
@@ -15,7 +15,7 @@ export const StaticTooltip = (props: StaticTooltipProps) => {
         <span
             onMouseEnter={() => setDisplayed(true)}
             onMouseLeave={() => setDisplayed(false)}
-            style={{ position: 'relative' }}
+            style={{ position: 'relative', display: 'inline-flex', margin: 0 }}
         >
             <ReactCSSTransition
                 state={displayed}
