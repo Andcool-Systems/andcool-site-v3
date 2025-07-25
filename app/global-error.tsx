@@ -1,8 +1,7 @@
 'use client';
 
 export default function GlobalError({
-    error,
-    reset
+    error
 }: {
     error: Error & { digest?: string };
     reset: () => void;

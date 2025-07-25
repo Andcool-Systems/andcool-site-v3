@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 const capitalize = (str: string) =>
     String(str).charAt(0).toUpperCase() + String(str).slice(1);
 
-export async function GET(_: NextRequest) {
+export async function GET() {
     const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather` +
             `?lat=${process.env.WEATHER_LAT}` +

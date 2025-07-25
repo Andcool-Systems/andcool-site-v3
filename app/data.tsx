@@ -330,6 +330,10 @@ export const projects: ProjectProp[] = [
         full_description: fu_more,
         links: [
             {
+                title: 'Сайт',
+                url: 'https://fu.andcool.me'
+            },
+            {
                 title: 'Исходный код',
                 url: 'https://github.com/Andcool-Systems/File-uploader'
             }
@@ -349,7 +353,7 @@ export const projects: ProjectProp[] = [
         links: [
             {
                 title: 'Сайт',
-                url: 'https://mc-oauth.andcool.ru'
+                url: 'https://mc-oauth.ru'
             },
             {
                 title: 'Исходный код сервера',

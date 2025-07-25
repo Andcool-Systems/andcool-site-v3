@@ -44,12 +44,14 @@ export const Bubble = ({
         const cw = canvasRef.current.width;
         const ch = canvasRef.current.height;
 
-        const ctx = canvasRef.current.getContext('2d');
+        const ctx = canvasRef.current.getContext('2d', {
+            willReadFrequently: true
+        });
         ctx.globalCompositeOperation = 'screen';
         ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
         let color = 0;
-        for (let layer of noise.current) {
+        for (const layer of noise.current) {
             let path = '';
             const time = Date.now() / 3000;
             for (

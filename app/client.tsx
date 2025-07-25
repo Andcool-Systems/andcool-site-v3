@@ -36,7 +36,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { StaticTooltip } from './components/Tooltip.tsx';
 import BuyMeCoffee from './components/BuyMeCoffee.tsx';
-import Activity from './components/Activity.tsx';
 import Wakatime from './components/Wakatime.tsx';
 import CurrentTime from './components/CurrentTime.tsx';
 import Weather from './components/Weather.tsx';
