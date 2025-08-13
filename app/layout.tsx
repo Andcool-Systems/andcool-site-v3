@@ -8,14 +8,14 @@ const onest = Onest({
 });
 
 export const metadata: Metadata = {
-    title: 'AndcoolSystems',
+    title: 'Портфолио • @AndcoolSystems',
     icons: {
         icon: '/static/andcool.jpg',
         shortcut: '/static/andcool.jpg',
         apple: '/static/andcool.jpg'
     },
     openGraph: {
-        title: 'AndcoolSystems',
+        title: 'Портфолио • @AndcoolSystems',
         description: 'Человек, программист, электронщик',
         url: 'https://andcool.ru',
         siteName: 'andcool.ru',
@@ -38,7 +38,7 @@ export default function RootLayout({
     children
 }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en">
+        <html lang="ru">
             <body className={onest.className}>{children}</body>
         </html>
     );

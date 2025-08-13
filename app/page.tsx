@@ -40,6 +40,7 @@ const Home = async () => {
         timeZone: 'Etc/GMT-3',
         year: 'numeric'
     }).format(date);
+
     return (
         <ClientHome
             birthday={birthday}
