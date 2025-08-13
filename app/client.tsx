@@ -66,9 +66,7 @@ export default function Home(props: {
             const alpha =
                 Math.max(0, client_height - window.scrollY) / client_height;
 
-            const scroll_bottom = document.getElementById(
-                'scroll_bottom'
-            ) as HTMLSpanElement;
+            const scroll_bottom = document.getElementById('scroll_bottom');
             scroll_bottom.style.opacity = alpha.toString();
         };
 
@@ -151,19 +149,18 @@ export default function Home(props: {
                     <div className={styles.hello}>
                         <h2>Привет👋</h2>
                         <p style={{ marginTop: '3px' }}>
-                            Меня зовут Андрей, мне{' '}
+                            Я <b>Эндкул</b> – Фуллстак TypeScript программист и
+                            немного электронщик. В свободное время занимаюсь
+                            разработкой сайтов, иногда пишу Телеграм или Дискорд
+                            ботов, сервера и утилиты.
+                            <br />
+                            <br />В реальности меня зовут <b>Андрей</b>, мне{' '}
                             <StaticTooltip title="7 Сентября 2007г.">
                                 <span style={{ cursor: 'pointer' }}>
                                     {props.age} лет
                                 </span>
                             </StaticTooltip>
-                            . Я Full Stack TypeScript & Python разработчик.
-                            <br />
-                            Занимаюсь разработкой сайтов, а так же пишу Телеграм
-                            ботов на заказ{' '}
-                            <span style={{ color: 'grey', fontSize: '.9rem' }}>
-                                (и для себя тоже).
-                            </span>
+                            .
                         </p>
                         <p style={{ marginTop: '1%' }}>
                             <Wakatime />
