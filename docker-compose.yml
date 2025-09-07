@@ -10,6 +10,8 @@ services:
     restart: always
     networks:
       - nginx
+    environment:
+      - TZ=Europe/Moscow
 
 networks:
   nginx:
