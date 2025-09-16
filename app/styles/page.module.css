@@ -229,6 +229,7 @@
 
 .stack_shadow_cont {
 	position: relative;
+	display: flex;
 }
 
 .stack_shadow {
