@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ProjectProp } from './components/projectCard.module';
 
 /* eslint-disable @next/next/no-img-element */
@@ -315,6 +316,26 @@ const html8_more = (
     </>
 );
 
+const skinview_bb = (
+    <>Пакет для воспроизведения BlockBench анимаций на инстансах SkinView3D.</>
+);
+
+const skinview_bb_more = (
+    <>
+        По сути является расширением пакета{' '}
+        <Link href="https://github.com/bs-community/skinview3d">
+            SkinView3D
+        </Link>
+        . Встроенные способы создания анимаций в этом пакете не подходят для
+        сложных и длительных анимаций на скине.
+        <br />
+        Самым удобным методом создания оказался BlockBench, но его формат
+        экспорта не подходил для воспроизведения на инстансе SkinView3D. Для
+        решения этой проблемы был разработан пакет <b>skinview3d-blockbench</b>,
+        который динамически интерпретирует и воспроизводит анимации.
+    </>
+);
+
 export const projects: ProjectProp[] = [
     {
         id: 'pplbandage',
@@ -402,6 +423,28 @@ export const projects: ProjectProp[] = [
             {
                 title: 'Исходный код',
                 url: 'https://github.com/Andcool-Systems/use-next-cookie'
+            }
+        ]
+    },
+    {
+        id: 'skinview-bb',
+        title: 'skinview3d-blockbench',
+        creation_date: '21.07.2025',
+        tags: ['TypeScript', 'Package', 'Animation'],
+        icon: {
+            url: '/static/placeholder.png',
+            color: '#1f1f1f'
+        },
+        short_description: skinview_bb,
+        full_description: skinview_bb_more,
+        links: [
+            {
+                title: 'npm',
+                url: 'https://www.npmjs.com/package/skinview3d-blockbench'
+            },
+            {
+                title: 'Исходный код',
+                url: 'https://github.com/Andcool-Systems/skinview3d-blockbench'
             }
         ]
     },
