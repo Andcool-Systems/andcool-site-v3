@@ -112,6 +112,14 @@
     margin-top: .5rem;
 }
 
+.description_animated {
+    transform: none;
+    transition: height 500ms;
+    height: var(--height);
+    overflow: hidden;
+}
+
+
 @media(max-width: 970px) {
     .main {
         width: 90%;

@@ -1,4 +1,4 @@
-import { CSSProperties, JSX, useState } from 'react';
+import { CSSProperties, JSX, useRef, useState } from 'react';
 import { Card3D } from './card3d';
 import styles_pr from '@/app/styles/projects.module.css';
 import Link from 'next/link';
@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { IconExternalLink } from '@tabler/icons-react';
 import styles_main from '@/app/styles/page.module.css';
 import { zedMono } from '../fonts/zed';
+import ReactCSSTransition from './CSSTransition';
 
 export interface ProjectProp {
     id: string;
@@ -33,6 +34,9 @@ const ppl_bandage_styles: CSSProperties = {
 
 const Card = ({ project }: { project: ProjectProp }) => {
     const [expanded, setExpanded] = useState<boolean>(false);
+    const [descriptionHeight, setDescriptionHeight] = useState<string>('0px');
+    const descriptionRef = useRef<HTMLParagraphElement>(undefined);
+
     const links = project.links.map(link => (
         <Link
             key={link.url}
@@ -52,6 +56,13 @@ const Card = ({ project }: { project: ProjectProp }) => {
             {tag}
         </span>
     ));
+
+    const setExpandedTransition = (state: boolean) => {
+        setExpanded(state);
+        setDescriptionHeight(
+            state ? `${descriptionRef.current.scrollHeight}px` : '0px'
+        );
+    };
 
     return (
         <article className={styles_pr.child} id={project.id}>
@@ -87,20 +98,31 @@ const Card = ({ project }: { project: ProjectProp }) => {
             </div>
             <div className={styles_pr.body}>
                 <h1>Описание</h1>
-                <p>
-                    {expanded ? (
-                        <>
-                            {project.short_description}
-                            <br />
-                            <br />
-                            {project.full_description}
-                        </>
-                    ) : (
-                        project.short_description
-                    )}
-                </p>
+                {project.short_description}
+
+                <br />
+                <ReactCSSTransition
+                    timeout={500}
+                    state={expanded}
+                    classNames={{
+                        enter: '',
+                        exitActive: ''
+                    }}
+                    mountOnExit
+                >
+                    <p
+                        ref={descriptionRef}
+                        className={styles_pr.description_animated}
+                        style={
+                            { '--height': descriptionHeight } as CSSProperties
+                        }
+                    >
+                        <br />
+                        {project.full_description}
+                    </p>
+                </ReactCSSTransition>
                 {!!project.full_description && (
-                    <button onClick={() => setExpanded(prev => !prev)}>
+                    <button onClick={() => setExpandedTransition(!expanded)}>
                         {expanded ? 'Скрыть' : 'Ещё...'}
                     </button>
                 )}

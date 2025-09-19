@@ -4,6 +4,7 @@ interface ReactCSSTransitionProps {
     timeout: number;
     children: JSX.Element;
     state: boolean;
+    mountOnExit?: boolean;
     classNames: {
         enter: string;
         exitActive: string;
@@ -13,7 +14,9 @@ interface ReactCSSTransitionProps {
 const ReactCSSTransition = (props: ReactCSSTransitionProps) => {
     const [state, setState] = useState<boolean>(props.state);
     const [animationClass, setAnimationClass] = useState<string>('');
-    const [mounted, setMounted] = useState<boolean>(props.state);
+    const [mounted, setMounted] = useState<boolean>(
+        props.mountOnExit ? true : props.state
+    );
 
     useEffect(() => {
         setState(props.state);
@@ -23,7 +26,7 @@ const ReactCSSTransition = (props: ReactCSSTransitionProps) => {
         let anim_request: number;
         let timeout: NodeJS.Timeout;
         if (state) {
-            setMounted(true);
+            if (!props.mountOnExit) setMounted(true);
             setAnimationClass(props.classNames.enter);
             anim_request = requestAnimationFrame(() => {
                 anim_request = requestAnimationFrame(() => {
@@ -33,7 +36,7 @@ const ReactCSSTransition = (props: ReactCSSTransitionProps) => {
         } else {
             setAnimationClass(props.classNames.exitActive);
             timeout = setTimeout(() => {
-                setMounted(false);
+                if (!props.mountOnExit) setMounted(false);
             }, props.timeout);
         }
 
