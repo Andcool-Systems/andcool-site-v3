@@ -102,7 +102,7 @@ export default function Home(props: {
                             <div className={styles.card_inner}>
                                 <div className={styles.avatar_bubble}>
                                     <Image
-                                        src="/static/andcool.jpg"
+                                        src="/static/andcool.png"
                                         alt="Avatar"
                                         width={460}
                                         height={460}

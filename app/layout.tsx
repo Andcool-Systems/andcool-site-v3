@@ -10,16 +10,16 @@ const onest = Onest({
 export const metadata: Metadata = {
     title: 'Портфолио • @AndcoolSystems',
     icons: {
-        icon: '/static/andcool.jpg',
-        shortcut: '/static/andcool.jpg',
-        apple: '/static/andcool.jpg'
+        icon: '/static/andcool.png',
+        shortcut: '/static/andcool.png',
+        apple: '/static/andcool.png'
     },
     openGraph: {
         title: 'Портфолио • @AndcoolSystems',
         description: 'Человек, программист, электронщик',
         url: 'https://andcool.ru',
         siteName: 'andcool.ru',
-        images: 'https://andcool.ru/static/andcool.jpg'
+        images: 'https://andcool.ru/static/andcool.png'
     },
     twitter: {
         card: 'summary'
