@@ -11,22 +11,22 @@
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@tabler/icons": "^3.34.1",
-    "@tabler/icons-react": "^3.34.1",
-    "axios": "^1.11.0",
-    "next": "^15.4.8",
+    "@tabler/icons": "^3.35.0",
+    "@tabler/icons-react": "^3.35.0",
+    "axios": "^1.13.2",
+    "next": "^16.0.10",
     "noisejs": "^2.1.0",
     "react": "^19",
     "react-dom": "^19",
     "simplex-noise": "^4.0.3"
   },
   "devDependencies": {
-    "@types/node": "^24",
+    "@types/node": "^25",
     "@types/noisejs": "^2.1.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.4",
+    "eslint-config-next": "16.0.10",
     "typescript": "^5"
   }
 }
