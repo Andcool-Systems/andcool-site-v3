@@ -336,12 +336,32 @@ const skinview_bb_more = (
     </>
 );
 
+const pplrp = (
+    <>Вики-сайт для официального ресурспака Minecraft сервера Pepeland.</>
+);
+
+const pplrp_more = (
+    <>
+        Сайт разрабатывался совместно с{' '}
+        <Link href="https://manukq.systems">Мануком</Link> на замену старому
+        сайту. <br />
+        Была проведена полная переработка дизайна сайта, а так же реализованы
+        функции рендера и предпросмотра моделей на стороне клиента, что
+        значительно снизило нагрузку на сервер и сеть, увеличив скорость
+        загрузки всего сайта.
+        <br />
+        Полностью переработан бекенд для соответствия новым требованиям сайта.
+        Так же сделана панель администратора для простого управления каталогом
+        моделей.
+    </>
+);
+
 export const projects: ProjectProp[] = [
     {
         id: 'pplbandage',
         title: 'Повязки PepeLand',
         creation_date: '01.06.2023',
-        tags: ['Next.Js', 'Nest.Js', 'Prisma ORM'],
+        tags: ['Next.Js', 'Nest.Js', 'Prisma ORM', 'Three.Js'],
         icon: {
             url: '/static/ppl.png',
             color: '#a0a0a0'
@@ -356,6 +376,29 @@ export const projects: ProjectProp[] = [
             {
                 title: 'Сборник всех репозиториев',
                 url: 'https://github.com/PPLBandage'
+            }
+        ]
+    },
+    {
+        id: 'pplrp',
+        title: 'Pepeland Pack Wiki',
+        creation_date: '16.10.2025',
+        tags: ['Next.Js', 'Nest.Js', 'Prisma ORM', 'Three.Js'],
+        icon: {
+            url: '/static/pplrp.png',
+            color: '#a0a0a0',
+            border_radius: '45px'
+        },
+        short_description: pplrp,
+        full_description: pplrp_more,
+        links: [
+            {
+                title: 'Сайт',
+                url: 'https://pplpack.wiki'
+            },
+            {
+                title: 'Организация в GitHub',
+                url: 'https://github.com/Pepeland-RP'
             }
         ]
     },

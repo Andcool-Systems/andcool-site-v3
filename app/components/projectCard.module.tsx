@@ -17,6 +17,7 @@ export interface ProjectProp {
     icon: {
         url: string;
         color: string;
+        border_radius?: string;
     };
     short_description: JSX.Element;
     full_description?: JSX.Element;
@@ -73,7 +74,8 @@ const Card = ({ project }: { project: ProjectProp }) => {
                 <Card3D>
                     <Image
                         style={{
-                            boxShadow: `${project.icon.color} 0px 0px 99px 9px`
+                            boxShadow: `${project.icon.color} 0px 0px 99px 9px`,
+                            borderRadius: project.icon.border_radius ?? '50%'
                         }}
                         src={project.icon.url}
                         alt={project.id}
