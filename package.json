@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
-    "@tabler/icons": "^3.36.1",
-    "@tabler/icons-react": "^3.36.1",
-    "axios": "^1.13.3",
-    "next": "^16.1.5",
+    "@tabler/icons": "^3.42.0",
+    "@tabler/icons-react": "^3.42.0",
+    "axios": "^1.16.0",
+    "next": "^16.2.5",
     "noisejs": "^2.1.0",
     "react": "^19",
     "react-dom": "^19",
@@ -27,6 +27,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.5",
-    "typescript": "^5"
+    "typescript": "^6"
   }
 }
