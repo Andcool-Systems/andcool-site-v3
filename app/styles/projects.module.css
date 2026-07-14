@@ -16,6 +16,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    transition: transform .8s cubic-bezier(.215, .61, .355, 1);
+}
+
+.child:hover {
+    transform: scale(1.01);
 }
 
 .head {
@@ -30,6 +35,8 @@
     border-top-right-radius: 10px;
 
     flex-shrink: 0;
+
+    position: relative;
 }
 
 .head img {
@@ -150,6 +157,38 @@
     box-sizing: border-box;
     width: calc(1400px + .75rem);
 }
+
+.background {
+    background-image: var(--img-url);
+    background-size: 80px;
+    background-repeat: repeat;
+    position: absolute;
+
+    top: -100%;
+    left: -10%;
+    bottom: -100%;
+    right: -10%;
+
+    opacity: .15;
+    transform: rotate(-30deg);
+}
+
+.in_dev_main {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    z-index: 1000;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+
+
+    padding: 0 2rem;
+
+    transform: rotate(-45deg) translate(-27%, -12px);
+}
+
 
 @media(max-width: 1774px) {
     .more {

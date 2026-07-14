@@ -13,6 +13,7 @@ export interface ProjectProp {
     title: string;
     creation_date: string;
     end_of_support?: string;
+    indev?: boolean;
     tags: string[];
     icon: {
         url: string;
@@ -26,12 +27,6 @@ export interface ProjectProp {
         url: string;
     }[];
 }
-
-const ppl_bandage_styles: CSSProperties = {
-    background: 'url(/static/background_amoled.svg)',
-    backgroundSize: '150px',
-    backgroundRepeat: 'repeat'
-};
 
 const Card = ({ project }: { project: ProjectProp }) => {
     const [expanded, setExpanded] = useState<boolean>(false);
@@ -67,10 +62,19 @@ const Card = ({ project }: { project: ProjectProp }) => {
 
     return (
         <article className={styles_pr.child} id={project.id}>
-            <div
-                className={styles_pr.head}
-                style={project.id === 'pplbandage' ? ppl_bandage_styles : {}}
-            >
+            <div className={styles_pr.head}>
+                <div
+                    className={styles_pr.background}
+                    style={
+                        {
+                            '--img-url': `url(${project.icon.url})`
+                        } as CSSProperties
+                    }
+                />
+                {project.indev && (
+                    <div className={styles_pr.in_dev_main}>In dev</div>
+                )}
+
                 <Card3D>
                     <Image
                         style={{

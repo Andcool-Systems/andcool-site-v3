@@ -403,8 +403,9 @@ export const projects: ProjectProp[] = [
     },
     {
         id: 'ultraviolet',
-        title: '[indev] Ultraviolet lang',
+        title: 'Ultraviolet lang',
         creation_date: '30.12.2025',
+        indev: true,
         tags: ['Rust', 'Language', 'Interpreter', 'XML'],
         icon: {
             url: '/static/uv-lang.jpg',
