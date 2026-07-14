@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: false,
+    allowedDevOrigins: ['192.168.0.53'],
     webpack(config) {
         config.cache = false;
         config.module.rules.push({

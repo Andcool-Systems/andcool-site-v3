@@ -79,8 +79,8 @@ const Card = ({ project }: { project: ProjectProp }) => {
                         }}
                         src={project.icon.url}
                         alt={project.id}
-                        width={160}
-                        height={160}
+                        width={320}
+                        height={320}
                     />
                 </Card3D>
                 <div className={styles_pr.name}>
@@ -99,35 +99,41 @@ const Card = ({ project }: { project: ProjectProp }) => {
                 </div>
             </div>
             <div className={styles_pr.body}>
-                <h1>Описание</h1>
-                {project.short_description}
+                <div>
+                    <h1>Описание</h1>
+                    {project.short_description}
 
-                <br />
-                <ReactCSSTransition
-                    timeout={500}
-                    state={expanded}
-                    classNames={{
-                        enter: '',
-                        exitActive: ''
-                    }}
-                    mountOnExit
-                >
-                    <p
-                        ref={descriptionRef}
-                        className={styles_pr.description_animated}
-                        style={
-                            { '--height': descriptionHeight } as CSSProperties
-                        }
+                    <br />
+                    <ReactCSSTransition
+                        timeout={500}
+                        state={expanded}
+                        classNames={{
+                            enter: '',
+                            exitActive: ''
+                        }}
+                        mountOnExit
                     >
-                        <br />
-                        {project.full_description}
-                    </p>
-                </ReactCSSTransition>
-                {!!project.full_description && (
-                    <button onClick={() => setExpandedTransition(!expanded)}>
-                        {expanded ? 'Скрыть' : 'Ещё...'}
-                    </button>
-                )}
+                        <p
+                            ref={descriptionRef}
+                            className={styles_pr.description_animated}
+                            style={
+                                {
+                                    '--height': descriptionHeight
+                                } as CSSProperties
+                            }
+                        >
+                            <br />
+                            {project.full_description}
+                        </p>
+                    </ReactCSSTransition>
+                    {!!project.full_description && (
+                        <button
+                            onClick={() => setExpandedTransition(!expanded)}
+                        >
+                            {expanded ? 'Скрыть' : 'Ещё...'}
+                        </button>
+                    )}
+                </div>
                 <div className={styles_pr.footer}>{links}</div>
             </div>
         </article>

@@ -356,6 +356,28 @@ const pplrp_more = (
     </>
 );
 
+const uv = (
+    <>
+        Интерпретируемый, статически строго типизируемый язык программирования,
+        с синтаксисом, вдохновленным HTML и XML.
+    </>
+);
+
+const uv_more = (
+    <>
+        Полноценный идейный преемник <a href="#html8">HTML8</a>. Разрабатывается
+        как полное переосмысление изначального проекта.
+        <br />
+        Синтаксис HTML8 был не проработанным и не позволял расширять проект.
+        Ultraviolet решает все проблемы HTML8, используя при этом синтаксис,
+        приближенный к нативному синтаксису XML (Вместо JSX в HTML8).
+        <br />
+        На данный момент Ultraviolet уже поддерживает ветвление, работу с
+        модулями, динамическую загрузку DLL и namespace. Параллельно ведется
+        разработка стандартной библиотеки `uvstdlib`.
+    </>
+);
+
 export const projects: ProjectProp[] = [
     {
         id: 'pplbandage',
@@ -376,6 +398,24 @@ export const projects: ProjectProp[] = [
             {
                 title: 'Сборник всех репозиториев',
                 url: 'https://github.com/PPLBandage'
+            }
+        ]
+    },
+    {
+        id: 'ultraviolet',
+        title: '[indev] Ultraviolet lang',
+        creation_date: '30.12.2025',
+        tags: ['Rust', 'Language', 'Interpreter', 'XML'],
+        icon: {
+            url: '/static/uv-lang.jpg',
+            color: '#191a2e'
+        },
+        short_description: uv,
+        full_description: uv_more,
+        links: [
+            {
+                title: 'Организация в GitHub',
+                url: 'https://github.com/uv-lang'
             }
         ]
     },
@@ -402,6 +442,7 @@ export const projects: ProjectProp[] = [
             }
         ]
     },
+
     {
         id: 'fileuploader',
         title: 'File Uploader',

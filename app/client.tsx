@@ -356,11 +356,12 @@ export default function Home(props: {
                 <span className={styles.projects_txt}>Лучшие</span> проекты
             </h1>
             <div className={styles_pr.main}>
-                {projects_el}
+                <div className={styles_pr.projects_grid}>{projects_el}</div>
                 <Link
                     href="https://github.com/Andcool-Systems?tab=repositories"
                     target="_blank"
                     style={{ textDecoration: 'none' }}
+                    className={styles_pr.more}
                 >
                     <div
                         className={`${styles_pr.button} ${styles.single}`}
