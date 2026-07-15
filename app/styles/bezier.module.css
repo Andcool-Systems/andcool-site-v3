@@ -31,8 +31,8 @@
 
 .cont.play .spark {
     animation: show .5s forwards,
-        move 1.5s var(--bez) .5s var(--dir),
-        hide .5s 2s forwards;
+        move var(--duration) var(--bez) .5s var(--dir),
+        hide .5s calc(.5s + var(--duration)) forwards;
 }
 
 @keyframes show {

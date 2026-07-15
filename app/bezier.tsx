@@ -20,6 +20,7 @@ const BezierLine = ({
     vertical,
     reversed
 }: BezierLineInterface) => {
+    const [randomDuration, setRandomDuration] = useState<number>(1000);
     const ref = useRef<HTMLDivElement>(null);
     const timeoutRef = useRef<NodeJS.Timeout>(null);
 
@@ -33,6 +34,7 @@ const BezierLine = ({
             const f = (e: AnimationEvent) => {
                 if (!e.animationName.includes('hide')) return;
                 ref.current.classList.remove(style.play);
+                setRandomDuration(500 + Math.random() * 1500);
 
                 ref.current.removeEventListener('animationend', f);
                 animation();
@@ -124,6 +126,7 @@ const BezierLine = ({
                             : `cubic-bezier(0.39, 0.07, 0.86, 0.39)`,
                         '--start-offset': reversed ? '100%' : '0%',
                         '--end-offset': reversed ? '0%' : '100%',
+                        '--duration': `${randomDuration}ms`,
                         top: Math.min(startY, endY),
                         left: startX
                     } as CSSProperties
