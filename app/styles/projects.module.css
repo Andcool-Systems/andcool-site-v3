@@ -75,7 +75,7 @@
 
 .child:hover .head,
 .child:hover .body {
-    border-color: color-mix(in srgb, var(--border-color) 80%, white 20%);
+    border-color: color-mix(in srgb, var(--border-color) 90%, white 10%);
 }
 
 .body h1 {
