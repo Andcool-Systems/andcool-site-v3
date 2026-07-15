@@ -165,9 +165,9 @@
     position: absolute;
 
     top: -100%;
-    left: -10%;
+    left: -100%;
     bottom: -100%;
-    right: -10%;
+    right: -100%;
 
     opacity: .15;
     transform: rotate(-30deg);
