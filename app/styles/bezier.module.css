@@ -1,0 +1,70 @@
+.bezier {
+    position: absolute;
+    background-color: #3d444d;
+    width: 1rem;
+    aspect-ratio: 1 / 1;
+    border: 3px var(--card-color) solid;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    transition: background-color 250ms;
+    cursor: pointer;
+}
+
+.hovered {
+    background-color: #57F287;
+}
+
+.spark {
+    offset-path: var(--path);
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    background-color: #57F287;
+    filter: blur(2px);
+    position: absolute;
+
+    opacity: 0;
+}
+
+.cont.play .spark {
+    animation: show .5s forwards,
+        move 1.5s var(--bez) .5s var(--dir),
+        hide .5s 2s forwards;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        offset-distance: var(--start-offset);
+    }
+
+    100% {
+        opacity: 1;
+        offset-distance: var(--start-offset);
+    }
+}
+
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        offset-distance: var(--end-offset);
+    }
+
+    100% {
+        opacity: 0;
+        offset-distance: var(--end-offset);
+    }
+}

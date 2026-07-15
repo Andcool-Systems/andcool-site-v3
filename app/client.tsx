@@ -40,6 +40,7 @@ import Wakatime from './components/Wakatime.tsx';
 import CurrentTime from './components/CurrentTime.tsx';
 import Weather from './components/Weather.tsx';
 import { Bubble } from './components/Bubble.tsx';
+import Connects from './connects.tsx';
 
 const techIconProps = {
     width: 64,
@@ -96,7 +97,8 @@ export default function Home(props: {
                     styles.header_birthday
                 }`}
             >
-                <div className={styles.animated}>
+                <Connects />
+                <div className={styles.animated} id="animated">
                     <div className={styles.nicks}>
                         <div className={`${styles.card} card`}>
                             <div className={styles.card_inner}>
@@ -146,7 +148,7 @@ export default function Home(props: {
                             <Weather />
                         </div>
                     </div>
-                    <div className={styles.hello}>
+                    <div id="connect_point" className={styles.hello}>
                         <h2>Привет👋</h2>
                         <p style={{ marginTop: '3px' }}>
                             Я <b>Эндкул</b> – Фуллстак TypeScript и Rust
