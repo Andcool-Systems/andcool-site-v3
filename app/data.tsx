@@ -140,15 +140,6 @@ const weather_more = (
         <b>1.</b> Адаптированная под тёмную тему GitHub тема. (Стандартная)
         <br />
         <b>2.</b> Город в стиле pixel art. by WavyCat
-        <br />
-        <br />
-        Рабочий пример:
-        <br />
-        <img
-            style={{ maxWidth: '100%' }}
-            src="https://weather.andcool.ru/api?place=moscow&timezone=gmt3&language=ru"
-            alt="weather widget"
-        />
     </>
 );
 
@@ -374,7 +365,7 @@ const uv_more = (
         <br />
         На данный момент Ultraviolet уже поддерживает ветвление, работу с
         модулями, динамическую загрузку DLL и namespace. Параллельно ведется
-        разработка стандартной библиотеки `uvstdlib`.
+        разработка стандартной библиотеки <code>uvstdlib</code>.
     </>
 );
 
