@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import BezierLine from './bezier';
+import BezierLine from './Bezier';
 import styles from '@/app/styles/connects.module.css';
 
 const Connects = () => {

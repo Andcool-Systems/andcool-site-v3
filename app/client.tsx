@@ -4,7 +4,7 @@ import styles from './styles/page.module.css';
 import styles_pr from '@/app/styles/projects.module.css';
 import { useEffect } from 'react';
 import { projects } from './data.tsx';
-import Card from './components/projectCard.module.tsx';
+import Card from './components/ProjectCard.tsx';
 
 import ExpressIcon from '@/app/static/express.svg';
 import NginxIcon from '@/app/static/nginx.svg';
@@ -40,7 +40,7 @@ import Wakatime from './components/Wakatime.tsx';
 import CurrentTime from './components/CurrentTime.tsx';
 import Weather from './components/Weather.tsx';
 import { Bubble } from './components/Bubble.tsx';
-import Connects from './connects.tsx';
+import Connects from './components/Connects.tsx';
 
 const techIconProps = {
     width: 64,

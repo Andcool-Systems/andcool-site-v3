@@ -1,5 +1,5 @@
 import { CSSProperties, JSX, useRef, useState } from 'react';
-import { Card3D } from './card3d';
+import { Card3D } from './Card3D';
 import styles_pr from '@/app/styles/projects.module.css';
 import Link from 'next/link';
 import Image from 'next/image';

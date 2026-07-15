@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ProjectProp } from './components/projectCard.module';
+import { ProjectProp } from './components/ProjectCard';
 
 /* eslint-disable @next/next/no-img-element */
 const fu = (
